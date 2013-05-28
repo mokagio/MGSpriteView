@@ -25,6 +25,7 @@
 		3FE94DE317557403007DD0A1 /* MGSpriteViewSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE94DE217557403007DD0A1 /* MGSpriteViewSampleTests.m */; };
 		3FE94DF2175577DC007DD0A1 /* MGSampleRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE94DF1175577DC007DD0A1 /* MGSampleRect.m */; };
 		3FE94DF617557861007DD0A1 /* MGSpriteSheetParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE94DF517557861007DD0A1 /* MGSpriteSheetParser.m */; };
+		3FE94DF917557928007DD0A1 /* MCSpriteLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE94DF817557928007DD0A1 /* MCSpriteLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		3FE94DF1175577DC007DD0A1 /* MGSampleRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGSampleRect.m; path = ../../MGSpriteView/MGSampleRect.m; sourceTree = "<group>"; };
 		3FE94DF417557861007DD0A1 /* MGSpriteSheetParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGSpriteSheetParser.h; path = ../../MGSpriteView/MGSpriteSheetParser.h; sourceTree = "<group>"; };
 		3FE94DF517557861007DD0A1 /* MGSpriteSheetParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGSpriteSheetParser.m; path = ../../MGSpriteView/MGSpriteSheetParser.m; sourceTree = "<group>"; };
+		3FE94DF717557928007DD0A1 /* MCSpriteLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCSpriteLayer.h; path = ../../MGSpriteView/MCSpriteLayer.h; sourceTree = "<group>"; };
+		3FE94DF817557928007DD0A1 /* MCSpriteLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCSpriteLayer.m; path = ../../MGSpriteView/MCSpriteLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,8 @@
 		3FE94DF3175577E3007DD0A1 /* MGSpriteView */ = {
 			isa = PBXGroup;
 			children = (
+				3FE94DF717557928007DD0A1 /* MCSpriteLayer.h */,
+				3FE94DF817557928007DD0A1 /* MCSpriteLayer.m */,
 				3FE94DF417557861007DD0A1 /* MGSpriteSheetParser.h */,
 				3FE94DF517557861007DD0A1 /* MGSpriteSheetParser.m */,
 				3FE94DF0175577DC007DD0A1 /* MGSampleRect.h */,
@@ -294,6 +299,7 @@
 				3FE94DCB17557403007DD0A1 /* MGViewController.m in Sources */,
 				3FE94DF2175577DC007DD0A1 /* MGSampleRect.m in Sources */,
 				3FE94DF617557861007DD0A1 /* MGSpriteSheetParser.m in Sources */,
+				3FE94DF917557928007DD0A1 /* MCSpriteLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
