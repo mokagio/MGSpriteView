@@ -26,6 +26,7 @@
 		3FE94DF2175577DC007DD0A1 /* MGSampleRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE94DF1175577DC007DD0A1 /* MGSampleRect.m */; };
 		3FE94DF617557861007DD0A1 /* MGSpriteSheetParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE94DF517557861007DD0A1 /* MGSpriteSheetParser.m */; };
 		3FE94DF917557928007DD0A1 /* MCSpriteLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE94DF817557928007DD0A1 /* MCSpriteLayer.m */; };
+		3FE94DFC17557B09007DD0A1 /* MGSpriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE94DFB17557B09007DD0A1 /* MGSpriteView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		3FE94DF517557861007DD0A1 /* MGSpriteSheetParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGSpriteSheetParser.m; path = ../../MGSpriteView/MGSpriteSheetParser.m; sourceTree = "<group>"; };
 		3FE94DF717557928007DD0A1 /* MCSpriteLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCSpriteLayer.h; path = ../../MGSpriteView/MCSpriteLayer.h; sourceTree = "<group>"; };
 		3FE94DF817557928007DD0A1 /* MCSpriteLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCSpriteLayer.m; path = ../../MGSpriteView/MCSpriteLayer.m; sourceTree = "<group>"; };
+		3FE94DFA17557B09007DD0A1 /* MGSpriteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGSpriteView.h; path = ../../MGSpriteView/MGSpriteView.h; sourceTree = "<group>"; };
+		3FE94DFB17557B09007DD0A1 /* MGSpriteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGSpriteView.m; path = ../../MGSpriteView/MGSpriteView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +182,8 @@
 				3FE94DF517557861007DD0A1 /* MGSpriteSheetParser.m */,
 				3FE94DF0175577DC007DD0A1 /* MGSampleRect.h */,
 				3FE94DF1175577DC007DD0A1 /* MGSampleRect.m */,
+				3FE94DFA17557B09007DD0A1 /* MGSpriteView.h */,
+				3FE94DFB17557B09007DD0A1 /* MGSpriteView.m */,
 			);
 			name = MGSpriteView;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 				3FE94DF2175577DC007DD0A1 /* MGSampleRect.m in Sources */,
 				3FE94DF617557861007DD0A1 /* MGSpriteSheetParser.m in Sources */,
 				3FE94DF917557928007DD0A1 /* MCSpriteLayer.m in Sources */,
+				3FE94DFC17557B09007DD0A1 /* MGSpriteView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
