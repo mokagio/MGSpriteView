@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3FE94DB217557403007DD0A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE94DB117557403007DD0A1 /* UIKit.framework */; };
+		3FE94DB417557403007DD0A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE94DB317557403007DD0A1 /* Foundation.framework */; };
+		3FE94DB617557403007DD0A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE94DB517557403007DD0A1 /* CoreGraphics.framework */; };
+		3FE94DBC17557403007DD0A1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FE94DBA17557403007DD0A1 /* InfoPlist.strings */; };
+		3FE94DBE17557403007DD0A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE94DBD17557403007DD0A1 /* main.m */; };
+		3FE94DC217557403007DD0A1 /* MGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE94DC117557403007DD0A1 /* MGAppDelegate.m */; };
+		3FE94DC417557403007DD0A1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FE94DC317557403007DD0A1 /* Default.png */; };
+		3FE94DC617557403007DD0A1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FE94DC517557403007DD0A1 /* Default@2x.png */; };
+		3FE94DC817557403007DD0A1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FE94DC717557403007DD0A1 /* Default-568h@2x.png */; };
+		3FE94DCB17557403007DD0A1 /* MGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE94DCA17557403007DD0A1 /* MGViewController.m */; };
+		3FE94DCE17557403007DD0A1 /* MGViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE94DCC17557403007DD0A1 /* MGViewController.xib */; };
+		3FE94DD617557403007DD0A1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE94DD517557403007DD0A1 /* SenTestingKit.framework */; };
+		3FE94DD717557403007DD0A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE94DB117557403007DD0A1 /* UIKit.framework */; };
+		3FE94DD817557403007DD0A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE94DB317557403007DD0A1 /* Foundation.framework */; };
+		3FE94DE017557403007DD0A1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FE94DDE17557403007DD0A1 /* InfoPlist.strings */; };
+		3FE94DE317557403007DD0A1 /* MGSpriteViewSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE94DE217557403007DD0A1 /* MGSpriteViewSampleTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3FE94DD917557403007DD0A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FE94DA617557403007DD0A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FE94DAD17557403007DD0A1;
+			remoteInfo = MGSpriteViewSample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3FE94DAE17557403007DD0A1 /* MGSpriteViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGSpriteViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FE94DB117557403007DD0A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3FE94DB317557403007DD0A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3FE94DB517557403007DD0A1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3FE94DB917557403007DD0A1 /* MGSpriteViewSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MGSpriteViewSample-Info.plist"; sourceTree = "<group>"; };
+		3FE94DBB17557403007DD0A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3FE94DBD17557403007DD0A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3FE94DBF17557403007DD0A1 /* MGSpriteViewSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MGSpriteViewSample-Prefix.pch"; sourceTree = "<group>"; };
+		3FE94DC017557403007DD0A1 /* MGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGAppDelegate.h; sourceTree = "<group>"; };
+		3FE94DC117557403007DD0A1 /* MGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGAppDelegate.m; sourceTree = "<group>"; };
+		3FE94DC317557403007DD0A1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		3FE94DC517557403007DD0A1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		3FE94DC717557403007DD0A1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		3FE94DC917557403007DD0A1 /* MGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGViewController.h; sourceTree = "<group>"; };
+		3FE94DCA17557403007DD0A1 /* MGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGViewController.m; sourceTree = "<group>"; };
+		3FE94DCD17557403007DD0A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MGViewController.xib; sourceTree = "<group>"; };
+		3FE94DD417557403007DD0A1 /* MGSpriteViewSampleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGSpriteViewSampleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FE94DD517557403007DD0A1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		3FE94DDD17557403007DD0A1 /* MGSpriteViewSampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MGSpriteViewSampleTests-Info.plist"; sourceTree = "<group>"; };
+		3FE94DDF17557403007DD0A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3FE94DE117557403007DD0A1 /* MGSpriteViewSampleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGSpriteViewSampleTests.h; sourceTree = "<group>"; };
+		3FE94DE217557403007DD0A1 /* MGSpriteViewSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGSpriteViewSampleTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3FE94DAB17557403007DD0A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FE94DB217557403007DD0A1 /* UIKit.framework in Frameworks */,
+				3FE94DB417557403007DD0A1 /* Foundation.framework in Frameworks */,
+				3FE94DB617557403007DD0A1 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FE94DD017557403007DD0A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FE94DD617557403007DD0A1 /* SenTestingKit.framework in Frameworks */,
+				3FE94DD717557403007DD0A1 /* UIKit.framework in Frameworks */,
+				3FE94DD817557403007DD0A1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3FE94DA517557403007DD0A1 = {
+			isa = PBXGroup;
+			children = (
+				3FE94DB717557403007DD0A1 /* MGSpriteViewSample */,
+				3FE94DDB17557403007DD0A1 /* MGSpriteViewSampleTests */,
+				3FE94DB017557403007DD0A1 /* Frameworks */,
+				3FE94DAF17557403007DD0A1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3FE94DAF17557403007DD0A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3FE94DAE17557403007DD0A1 /* MGSpriteViewSample.app */,
+				3FE94DD417557403007DD0A1 /* MGSpriteViewSampleTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3FE94DB017557403007DD0A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3FE94DB117557403007DD0A1 /* UIKit.framework */,
+				3FE94DB317557403007DD0A1 /* Foundation.framework */,
+				3FE94DB517557403007DD0A1 /* CoreGraphics.framework */,
+				3FE94DD517557403007DD0A1 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3FE94DB717557403007DD0A1 /* MGSpriteViewSample */ = {
+			isa = PBXGroup;
+			children = (
+				3FE94DC017557403007DD0A1 /* MGAppDelegate.h */,
+				3FE94DC117557403007DD0A1 /* MGAppDelegate.m */,
+				3FE94DC917557403007DD0A1 /* MGViewController.h */,
+				3FE94DCA17557403007DD0A1 /* MGViewController.m */,
+				3FE94DCC17557403007DD0A1 /* MGViewController.xib */,
+				3FE94DB817557403007DD0A1 /* Supporting Files */,
+			);
+			path = MGSpriteViewSample;
+			sourceTree = "<group>";
+		};
+		3FE94DB817557403007DD0A1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3FE94DB917557403007DD0A1 /* MGSpriteViewSample-Info.plist */,
+				3FE94DBA17557403007DD0A1 /* InfoPlist.strings */,
+				3FE94DBD17557403007DD0A1 /* main.m */,
+				3FE94DBF17557403007DD0A1 /* MGSpriteViewSample-Prefix.pch */,
+				3FE94DC317557403007DD0A1 /* Default.png */,
+				3FE94DC517557403007DD0A1 /* Default@2x.png */,
+				3FE94DC717557403007DD0A1 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3FE94DDB17557403007DD0A1 /* MGSpriteViewSampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				3FE94DE117557403007DD0A1 /* MGSpriteViewSampleTests.h */,
+				3FE94DE217557403007DD0A1 /* MGSpriteViewSampleTests.m */,
+				3FE94DDC17557403007DD0A1 /* Supporting Files */,
+			);
+			path = MGSpriteViewSampleTests;
+			sourceTree = "<group>";
+		};
+		3FE94DDC17557403007DD0A1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3FE94DDD17557403007DD0A1 /* MGSpriteViewSampleTests-Info.plist */,
+				3FE94DDE17557403007DD0A1 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3FE94DAD17557403007DD0A1 /* MGSpriteViewSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FE94DE617557403007DD0A1 /* Build configuration list for PBXNativeTarget "MGSpriteViewSample" */;
+			buildPhases = (
+				3FE94DAA17557403007DD0A1 /* Sources */,
+				3FE94DAB17557403007DD0A1 /* Frameworks */,
+				3FE94DAC17557403007DD0A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MGSpriteViewSample;
+			productName = MGSpriteViewSample;
+			productReference = 3FE94DAE17557403007DD0A1 /* MGSpriteViewSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3FE94DD317557403007DD0A1 /* MGSpriteViewSampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FE94DE917557403007DD0A1 /* Build configuration list for PBXNativeTarget "MGSpriteViewSampleTests" */;
+			buildPhases = (
+				3FE94DCF17557403007DD0A1 /* Sources */,
+				3FE94DD017557403007DD0A1 /* Frameworks */,
+				3FE94DD117557403007DD0A1 /* Resources */,
+				3FE94DD217557403007DD0A1 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3FE94DDA17557403007DD0A1 /* PBXTargetDependency */,
+			);
+			name = MGSpriteViewSampleTests;
+			productName = MGSpriteViewSampleTests;
+			productReference = 3FE94DD417557403007DD0A1 /* MGSpriteViewSampleTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3FE94DA617557403007DD0A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MG;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = mokagio;
+			};
+			buildConfigurationList = 3FE94DA917557403007DD0A1 /* Build configuration list for PBXProject "MGSpriteViewSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3FE94DA517557403007DD0A1;
+			productRefGroup = 3FE94DAF17557403007DD0A1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3FE94DAD17557403007DD0A1 /* MGSpriteViewSample */,
+				3FE94DD317557403007DD0A1 /* MGSpriteViewSampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3FE94DAC17557403007DD0A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FE94DBC17557403007DD0A1 /* InfoPlist.strings in Resources */,
+				3FE94DC417557403007DD0A1 /* Default.png in Resources */,
+				3FE94DC617557403007DD0A1 /* Default@2x.png in Resources */,
+				3FE94DC817557403007DD0A1 /* Default-568h@2x.png in Resources */,
+				3FE94DCE17557403007DD0A1 /* MGViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FE94DD117557403007DD0A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FE94DE017557403007DD0A1 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3FE94DD217557403007DD0A1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3FE94DAA17557403007DD0A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FE94DBE17557403007DD0A1 /* main.m in Sources */,
+				3FE94DC217557403007DD0A1 /* MGAppDelegate.m in Sources */,
+				3FE94DCB17557403007DD0A1 /* MGViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FE94DCF17557403007DD0A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FE94DE317557403007DD0A1 /* MGSpriteViewSampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3FE94DDA17557403007DD0A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FE94DAD17557403007DD0A1 /* MGSpriteViewSample */;
+			targetProxy = 3FE94DD917557403007DD0A1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3FE94DBA17557403007DD0A1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FE94DBB17557403007DD0A1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3FE94DCC17557403007DD0A1 /* MGViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FE94DCD17557403007DD0A1 /* en */,
+			);
+			name = MGViewController.xib;
+			sourceTree = "<group>";
+		};
+		3FE94DDE17557403007DD0A1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FE94DDF17557403007DD0A1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3FE94DE417557403007DD0A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3FE94DE517557403007DD0A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3FE94DE717557403007DD0A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MGSpriteViewSample/MGSpriteViewSample-Prefix.pch";
+				INFOPLIST_FILE = "MGSpriteViewSample/MGSpriteViewSample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3FE94DE817557403007DD0A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MGSpriteViewSample/MGSpriteViewSample-Prefix.pch";
+				INFOPLIST_FILE = "MGSpriteViewSample/MGSpriteViewSample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		3FE94DEA17557403007DD0A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MGSpriteViewSample.app/MGSpriteViewSample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MGSpriteViewSample/MGSpriteViewSample-Prefix.pch";
+				INFOPLIST_FILE = "MGSpriteViewSampleTests/MGSpriteViewSampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		3FE94DEB17557403007DD0A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MGSpriteViewSample.app/MGSpriteViewSample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MGSpriteViewSample/MGSpriteViewSample-Prefix.pch";
+				INFOPLIST_FILE = "MGSpriteViewSampleTests/MGSpriteViewSampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3FE94DA917557403007DD0A1 /* Build configuration list for PBXProject "MGSpriteViewSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FE94DE417557403007DD0A1 /* Debug */,
+				3FE94DE517557403007DD0A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FE94DE617557403007DD0A1 /* Build configuration list for PBXNativeTarget "MGSpriteViewSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FE94DE717557403007DD0A1 /* Debug */,
+				3FE94DE817557403007DD0A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3FE94DE917557403007DD0A1 /* Build configuration list for PBXNativeTarget "MGSpriteViewSampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FE94DEA17557403007DD0A1 /* Debug */,
+				3FE94DEB17557403007DD0A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3FE94DA617557403007DD0A1 /* Project object */;
+}
