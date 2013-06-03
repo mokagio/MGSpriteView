@@ -20,7 +20,7 @@
             <key>squirtle00001.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{156,78},{37,36}}</string>
+                <string>{{195,78},{37,36}}</string>
                 <key>offset</key>
                 <string>{-1,1}</string>
                 <key>rotated</key>
@@ -33,7 +33,7 @@
             <key>squirtle00002.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,42},{39,36}}</string>
+                <string>{{86,40},{39,36}}</string>
                 <key>offset</key>
                 <string>{-2,0}</string>
                 <key>rotated</key>
@@ -46,7 +46,7 @@
             <key>squirtle00003.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{117,78},{37,36}}</string>
+                <string>{{156,78},{37,36}}</string>
                 <key>offset</key>
                 <string>{-2,0}</string>
                 <key>rotated</key>
@@ -59,7 +59,7 @@
             <key>squirtle00004.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{78,78},{37,36}}</string>
+                <string>{{117,78},{37,36}}</string>
                 <key>offset</key>
                 <string>{-3,0}</string>
                 <key>rotated</key>
@@ -72,11 +72,11 @@
             <key>squirtle00005.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{40,197},{37,36}}</string>
+                <string>{{78,78},{37,36}}</string>
                 <key>offset</key>
                 <string>{-4,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{5,2},{37,36}}</string>
                 <key>sourceSize</key>
@@ -85,7 +85,7 @@
             <key>squirtle00006.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{40,158},{37,36}}</string>
+                <string>{{40,197},{37,36}}</string>
                 <key>offset</key>
                 <string>{-6,1}</string>
                 <key>rotated</key>
@@ -98,7 +98,7 @@
             <key>squirtle00007.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{40,119},{37,36}}</string>
+                <string>{{40,158},{37,36}}</string>
                 <key>offset</key>
                 <string>{-6,1}</string>
                 <key>rotated</key>
@@ -111,7 +111,7 @@
             <key>squirtle00008.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{40,80},{37,36}}</string>
+                <string>{{40,119},{37,36}}</string>
                 <key>offset</key>
                 <string>{-8,0}</string>
                 <key>rotated</key>
@@ -124,7 +124,7 @@
             <key>squirtle00009.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,197},{37,36}}</string>
+                <string>{{40,80},{37,36}}</string>
                 <key>offset</key>
                 <string>{-9,0}</string>
                 <key>rotated</key>
@@ -137,7 +137,7 @@
             <key>squirtle00010.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,158},{37,36}}</string>
+                <string>{{2,197},{37,36}}</string>
                 <key>offset</key>
                 <string>{-9,0}</string>
                 <key>rotated</key>
@@ -150,7 +150,7 @@
             <key>squirtle00011.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,119},{37,36}}</string>
+                <string>{{2,158},{37,36}}</string>
                 <key>offset</key>
                 <string>{-9,0}</string>
                 <key>rotated</key>
@@ -163,7 +163,7 @@
             <key>squirtle00012.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,158},{37,36}}</string>
+                <string>{{2,197},{37,36}}</string>
                 <key>offset</key>
                 <string>{-9,0}</string>
                 <key>rotated</key>
@@ -176,7 +176,7 @@
             <key>squirtle00013.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,197},{37,36}}</string>
+                <string>{{40,80},{37,36}}</string>
                 <key>offset</key>
                 <string>{-9,0}</string>
                 <key>rotated</key>
@@ -189,7 +189,7 @@
             <key>squirtle00014.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{40,80},{37,36}}</string>
+                <string>{{40,119},{37,36}}</string>
                 <key>offset</key>
                 <string>{-8,0}</string>
                 <key>rotated</key>
@@ -202,7 +202,7 @@
             <key>squirtle00015.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{40,119},{37,36}}</string>
+                <string>{{40,158},{37,36}}</string>
                 <key>offset</key>
                 <string>{-6,1}</string>
                 <key>rotated</key>
@@ -215,7 +215,7 @@
             <key>squirtle00016.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{40,158},{37,36}}</string>
+                <string>{{40,197},{37,36}}</string>
                 <key>offset</key>
                 <string>{-6,1}</string>
                 <key>rotated</key>
@@ -228,7 +228,7 @@
             <key>squirtle00017.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,80},{37,36}}</string>
+                <string>{{2,119},{37,36}}</string>
                 <key>offset</key>
                 <string>{-4,0}</string>
                 <key>rotated</key>
@@ -241,7 +241,7 @@
             <key>squirtle00018.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{78,78},{37,36}}</string>
+                <string>{{117,78},{37,36}}</string>
                 <key>offset</key>
                 <string>{-3,0}</string>
                 <key>rotated</key>
@@ -254,7 +254,7 @@
             <key>squirtle00019.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{117,78},{37,36}}</string>
+                <string>{{156,78},{37,36}}</string>
                 <key>offset</key>
                 <string>{-2,0}</string>
                 <key>rotated</key>
@@ -267,7 +267,7 @@
             <key>squirtle00020.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,42},{39,36}}</string>
+                <string>{{86,40},{39,36}}</string>
                 <key>offset</key>
                 <string>{-2,0}</string>
                 <key>rotated</key>
@@ -280,7 +280,7 @@
             <key>squirtle00021.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{156,78},{37,36}}</string>
+                <string>{{195,78},{37,36}}</string>
                 <key>offset</key>
                 <string>{-1,1}</string>
                 <key>rotated</key>
@@ -293,11 +293,11 @@
             <key>squirtle00022.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{203,40},{37,36}}</string>
+                <string>{{2,80},{37,36}}</string>
                 <key>offset</key>
                 <string>{1,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{10,2},{37,36}}</string>
                 <key>sourceSize</key>
@@ -306,7 +306,7 @@
             <key>squirtle00023.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{164,40},{37,36}}</string>
+                <string>{{205,40},{37,36}}</string>
                 <key>offset</key>
                 <string>{2,0}</string>
                 <key>rotated</key>
@@ -319,7 +319,7 @@
             <key>squirtle00024.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{125,40},{37,36}}</string>
+                <string>{{166,40},{37,36}}</string>
                 <key>offset</key>
                 <string>{3,0}</string>
                 <key>rotated</key>
@@ -332,7 +332,7 @@
             <key>squirtle00025.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{45,40},{39,36}}</string>
+                <string>{{2,42},{39,36}}</string>
                 <key>offset</key>
                 <string>{3,0}</string>
                 <key>rotated</key>
@@ -345,7 +345,7 @@
             <key>squirtle00026.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{209,2},{39,36}}</string>
+                <string>{{45,40},{39,36}}</string>
                 <key>offset</key>
                 <string>{4,-1}</string>
                 <key>rotated</key>
@@ -358,7 +358,7 @@
             <key>squirtle00027.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{168,2},{39,36}}</string>
+                <string>{{209,2},{39,36}}</string>
                 <key>offset</key>
                 <string>{5,-1}</string>
                 <key>rotated</key>
@@ -371,7 +371,7 @@
             <key>squirtle00028.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{127,2},{39,36}}</string>
+                <string>{{168,2},{39,36}}</string>
                 <key>offset</key>
                 <string>{6,-1}</string>
                 <key>rotated</key>
@@ -384,7 +384,7 @@
             <key>squirtle00029.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{86,2},{39,36}}</string>
+                <string>{{127,2},{39,36}}</string>
                 <key>offset</key>
                 <string>{7,-1}</string>
                 <key>rotated</key>
@@ -397,7 +397,7 @@
             <key>squirtle00030.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{45,2},{39,36}}</string>
+                <string>{{86,2},{39,36}}</string>
                 <key>offset</key>
                 <string>{8,-1}</string>
                 <key>rotated</key>
@@ -410,13 +410,143 @@
             <key>squirtle00031.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{86,40},{37,36}}</string>
+                <string>{{127,40},{37,36}}</string>
                 <key>offset</key>
                 <string>{8,-2}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
                 <string>{{17,4},{37,36}}</string>
+                <key>sourceSize</key>
+                <string>{55,40}</string>
+            </dict>
+            <key>squirtle00032.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{86,2},{39,36}}</string>
+                <key>offset</key>
+                <string>{8,-1}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{16,3},{39,36}}</string>
+                <key>sourceSize</key>
+                <string>{55,40}</string>
+            </dict>
+            <key>squirtle00033.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{127,2},{39,36}}</string>
+                <key>offset</key>
+                <string>{7,-1}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{15,3},{39,36}}</string>
+                <key>sourceSize</key>
+                <string>{55,40}</string>
+            </dict>
+            <key>squirtle00034.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{168,2},{39,36}}</string>
+                <key>offset</key>
+                <string>{6,-1}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{14,3},{39,36}}</string>
+                <key>sourceSize</key>
+                <string>{55,40}</string>
+            </dict>
+            <key>squirtle00035.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{209,2},{39,36}}</string>
+                <key>offset</key>
+                <string>{5,-1}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{13,3},{39,36}}</string>
+                <key>sourceSize</key>
+                <string>{55,40}</string>
+            </dict>
+            <key>squirtle00036.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{45,40},{39,36}}</string>
+                <key>offset</key>
+                <string>{4,-1}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{12,3},{39,36}}</string>
+                <key>sourceSize</key>
+                <string>{55,40}</string>
+            </dict>
+            <key>squirtle00037.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{45,2},{39,36}}</string>
+                <key>offset</key>
+                <string>{3,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{11,2},{39,36}}</string>
+                <key>sourceSize</key>
+                <string>{55,40}</string>
+            </dict>
+            <key>squirtle00038.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{166,40},{37,36}}</string>
+                <key>offset</key>
+                <string>{3,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{12,2},{37,36}}</string>
+                <key>sourceSize</key>
+                <string>{55,40}</string>
+            </dict>
+            <key>squirtle00039.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{205,40},{37,36}}</string>
+                <key>offset</key>
+                <string>{2,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{11,2},{37,36}}</string>
+                <key>sourceSize</key>
+                <string>{55,40}</string>
+            </dict>
+            <key>squirtle00040.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,80},{37,36}}</string>
+                <key>offset</key>
+                <string>{1,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{10,2},{37,36}}</string>
+                <key>sourceSize</key>
+                <string>{55,40}</string>
+            </dict>
+            <key>squirtle00041.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{41,38}}</string>
+                <key>offset</key>
+                <string>{-2,1}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{5,0},{41,38}}</string>
                 <key>sourceSize</key>
                 <string>{55,40}</string>
             </dict>
@@ -430,7 +560,7 @@
             <key>size</key>
             <string>{256,256}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:1303a3bf043055aa244f376761ee2e39$</string>
+            <string>$TexturePacker:SmartUpdate:6f6e3b0c506b137a9485ebedc0b93977$</string>
             <key>textureFileName</key>
             <string>squirtle-hd.png</string>
         </dict>
