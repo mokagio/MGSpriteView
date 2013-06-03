@@ -10,6 +10,9 @@
 		3F106A3D175ADEB300603C70 /* bulbasaur.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F106A3A175ADEB300603C70 /* bulbasaur.plist */; };
 		3F106A3E175ADEB300603C70 /* bulbasaur.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F106A3B175ADEB300603C70 /* bulbasaur.png */; };
 		3F106A3F175ADEB300603C70 /* bulbasaur@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F106A3C175ADEB300603C70 /* bulbasaur@2x.png */; };
+		3F9A02A1175C9F2400840866 /* charmander.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F9A029E175C9F2400840866 /* charmander.plist */; };
+		3F9A02A2175C9F2400840866 /* charmander.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9A029F175C9F2400840866 /* charmander.png */; };
+		3F9A02A3175C9F2400840866 /* charmander@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9A02A0175C9F2400840866 /* charmander@2x.png */; };
 		3FE94DB217557403007DD0A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE94DB117557403007DD0A1 /* UIKit.framework */; };
 		3FE94DB417557403007DD0A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE94DB317557403007DD0A1 /* Foundation.framework */; };
 		3FE94DB617557403007DD0A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE94DB517557403007DD0A1 /* CoreGraphics.framework */; };
@@ -50,6 +53,9 @@
 		3F106A3A175ADEB300603C70 /* bulbasaur.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bulbasaur.plist; sourceTree = "<group>"; };
 		3F106A3B175ADEB300603C70 /* bulbasaur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bulbasaur.png; sourceTree = "<group>"; };
 		3F106A3C175ADEB300603C70 /* bulbasaur@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bulbasaur@2x.png"; sourceTree = "<group>"; };
+		3F9A029E175C9F2400840866 /* charmander.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = charmander.plist; sourceTree = "<group>"; };
+		3F9A029F175C9F2400840866 /* charmander.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = charmander.png; sourceTree = "<group>"; };
+		3F9A02A0175C9F2400840866 /* charmander@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "charmander@2x.png"; sourceTree = "<group>"; };
 		3FE94DAE17557403007DD0A1 /* MGSpriteViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGSpriteViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE94DB117557403007DD0A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3FE94DB317557403007DD0A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -214,6 +220,9 @@
 				3FE94E0017557DA0007DD0A1 /* squirtle.plist */,
 				3FE94E0117557DA0007DD0A1 /* squirtle.png */,
 				3FE94E0217557DA0007DD0A1 /* squirtle@2x.png */,
+				3F9A029E175C9F2400840866 /* charmander.plist */,
+				3F9A029F175C9F2400840866 /* charmander.png */,
+				3F9A02A0175C9F2400840866 /* charmander@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -301,6 +310,9 @@
 				3F106A3D175ADEB300603C70 /* bulbasaur.plist in Resources */,
 				3F106A3E175ADEB300603C70 /* bulbasaur.png in Resources */,
 				3F106A3F175ADEB300603C70 /* bulbasaur@2x.png in Resources */,
+				3F9A02A1175C9F2400840866 /* charmander.plist in Resources */,
+				3F9A02A2175C9F2400840866 /* charmander.png in Resources */,
+				3F9A02A3175C9F2400840866 /* charmander@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
