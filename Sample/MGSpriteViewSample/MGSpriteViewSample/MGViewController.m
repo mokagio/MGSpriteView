@@ -9,8 +9,17 @@
 #import "MGViewController.h"
 #import "MGSpriteView.h"
 
+static const CGFloat kBulbasaurWidth = 49;
+static const CGFloat kBulbasaurHeight = 45;
+
+static const CGFloat kSquirtleWidth = 55;
+static const CGFloat kSquirtleHeight = 40;
+
 @interface MGViewController ()
+@property (nonatomic, strong) MGSpriteView *bulbasaur;
 @property (nonatomic, strong) MGSpriteView *squirtle;
+- (void)addBulbasaur;
+- (void)addSquirtle;
 @end
 
 @implementation MGViewController
@@ -19,26 +28,38 @@
 {
     [super viewDidLoad];
     
-    CGFloat side = 30;
-    CGRect frame = CGRectMake((self.view.frame.size.width - side) / 2,
-                              (self.view.frame.size.height - side) / 2,
-                              side,
-                              side);
-    self.squirtle = [[MGSpriteView alloc] initWithFrame:frame
-                                             spriteSheetFileName:@"squirtle.png"
-                                                             fps:12];
-    [self.view addSubview:self.squirtle.view];
+    [self addBulbasaur];
+    [self addSquirtle];
+    
+    self.bulbasaur.view.center = CGPointMake(100, 100);
+    self.squirtle.view.center = CGPointMake(200, 200);
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [self.bulbasaur runAnimation];
     [self.squirtle runAnimation];
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - UI
+
+- (void)addBulbasaur
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    CGRect frame = CGRectMake(0, 0, kBulbasaurWidth, kBulbasaurHeight);
+    self.bulbasaur = [[MGSpriteView alloc] initWithFrame:frame
+                                     spriteSheetFileName:@"bulbasaur.png"
+                                                     fps:12];
+//    self.bulbasaur.view.backgroundColor = [UIColor redColor];
+    [self.view addSubview:self.bulbasaur.view];
+}
+
+- (void)addSquirtle
+{
+    CGRect frame = CGRectMake(0, 0, kSquirtleWidth, kSquirtleHeight);
+    self.squirtle = [[MGSpriteView alloc] initWithFrame:frame
+                                     spriteSheetFileName:@"squirtle.png"
+                                                     fps:12];
+    [self.view addSubview:self.squirtle.view];
 }
 
 @end
