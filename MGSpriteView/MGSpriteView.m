@@ -16,9 +16,7 @@
 @property (nonatomic, assign) NSUInteger fps;
 @property (nonatomic, assign) CGFloat scaleFactor;
 - (NSUInteger)numberOfFrames;
-- (void)setInitialPosition;
 - (void)setPositionWithSample:(MGSampleRect *)sample;
-- (void)setInitialTransform;
 - (void)setTransformWithSample:(MGSampleRect *)sample;
 
 - (void)findScaleFactor;
@@ -50,10 +48,8 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
         self.animatedLayer = [MCSpriteLayer layerWithImage:image];
         self.animatedLayer.delegate = self;
         
-        [self setInitialPosition];
-        [self setInitialTransform];
-        
         [self.view.layer addSublayer:self.animatedLayer];
+        [self.animatedLayer setNeedsDisplay];
     }
     return self;
 }
@@ -87,24 +83,24 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     if (layer == self.animatedLayer) {
         MCSpriteLayer *spriteLayer = (MCSpriteLayer*)layer;
         unsigned int idx = [spriteLayer currentSampleIndex];
-        if (idx == 0)
-            return;
-        
-        MGSampleRect *sample = self.sampleRects[idx - 1];
-
-        spriteLayer.bounds = sample.bounds;
-        spriteLayer.contentsRect = sample.contentRect;
-        [self setPositionWithSample:sample];
-        [self setTransformWithSample:sample];
+        MGSampleRect *sample = nil;
+        if (idx == 0) {
+            sample = self.sampleRects[idx];
+        } else {
+            sample = self.sampleRects[idx - 1];
+        }
+        [self displayAnimatedLayerWithSample:sample];
     }
 }
 
 #pragma mark - 
 
-- (void)setInitialPosition
+- (void)displayAnimatedLayerWithSample:(MGSampleRect *)sample
 {
-    MGSampleRect *firstSample = self.sampleRects[0];
-    [self setPositionWithSample:firstSample];
+    self.animatedLayer.bounds = sample.bounds;
+    self.animatedLayer.contentsRect = sample.contentRect;
+    [self setPositionWithSample:sample];
+    [self setTransformWithSample:sample];
 }
 
 - (void)setPositionWithSample:(MGSampleRect *)sample
@@ -118,12 +114,6 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     CGFloat x = self.view.layer.frame.size.width / 2 + evaluatedOffsetX * self.scaleFactor;
     CGFloat y = self.view.layer.frame.size.height / 2 + evaluatedOffsetY * self.scaleFactor;
     self.animatedLayer.position = CGPointMake(x, y);
-}
-
-- (void)setInitialTransform
-{
-    MGSampleRect *firstSample = self.sampleRects[0];
-    [self setTransformWithSample:firstSample];
 }
 
 - (void)setTransformWithSample:(MGSampleRect *)sample
