@@ -7,6 +7,14 @@ MGSpriteView wouldn't be possible without [MCSpriteLayer](http://mysterycoconut.
 
 Don't forget to add the CoreAnimation framwork (QuartzCore.framework) to your project!
 
+###Roadmap
+
+####v0.0.3
+* `MGSpriteAnimation`. Since `MGSpriteView` is not a view and it's meaningful only for animations it needs some refactoring
+
+####v0.0.4
+* (new) `MGSpriteView`. A view that we can init with a spritesheet and a sprite name.
+
 ###TODO List
 * Test Performance
 * Cover possible fails
