@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSArray *sampleRects;
 @property (nonatomic, assign) NSUInteger fps;
 @property (nonatomic, assign) CGFloat scaleFactor;
+@property (nonatomic, strong) MGSpriteAnimationCallback completeCallback;
 - (NSUInteger)numberOfFrames;
 - (void)setPositionWithSample:(MGSampleRect *)sample;
 - (void)setTransformWithSample:(MGSampleRect *)sample;
@@ -35,6 +36,7 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
         
         self.view = [[UIView alloc] initWithFrame:frame];
         self.fps = fps;
+        self.completeCallback = nil;
         
         CGImageRef image = [[UIImage imageNamed:spriteSheetFilename] CGImage];
         NSString *plistFileName = [spriteSheetFilename stringByDeletingPathExtension];
@@ -56,6 +58,13 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
 
 - (void)runAnimation
 {
+    [self runAnimationWithCompleteCallback:nil];
+}
+
+- (void)runAnimationWithCompleteCallback:(MGSpriteAnimationCallback)callback
+{
+    self.completeCallback = callback;
+    
     CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"sampleIndex"];
     anim.fromValue = [NSNumber numberWithInt:1];
     anim.toValue = [NSNumber numberWithInt:self.numberOfFrames + 1];
@@ -82,14 +91,25 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
 {
     if (layer == self.animatedLayer) {
         MCSpriteLayer *spriteLayer = (MCSpriteLayer*)layer;
-        unsigned int idx = [spriteLayer currentSampleIndex];
+        unsigned int index = [spriteLayer currentSampleIndex];
         MGSampleRect *sample = nil;
-        if (idx == 0) {
-            sample = self.sampleRects[idx];
+        
+        if (index == 0) {
+            sample = self.sampleRects[index];
         } else {
-            sample = self.sampleRects[idx - 1];
+            sample = self.sampleRects[index - 1];
         }
+        
         [self displayAnimatedLayerWithSample:sample];
+        
+        if (index >= [self.sampleRects count] && self.completeCallback) {
+            self.completeCallback();
+            // HACK---
+            // The callback runs 5 times! How is that?!
+            //NSLog(@"Animation complete. Index %d", index);
+            self.completeCallback = nil;
+            // ---HACK
+        }
     }
 }
 
