@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^MGSpriteAnimationCallback)();
+
 @interface MGSpriteView : NSObject
 
 @property (nonatomic, strong) UIView *view;
@@ -16,6 +18,7 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
                 fps:(NSUInteger)fps;
 
 - (void)runAnimation;
+- (void)runAnimationWithCompleteCallback:(MGSpriteAnimationCallback)callback;
 
 - (CFTimeInterval)duration;
 
