@@ -103,12 +103,13 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
         [self displayAnimatedLayerWithSample:sample];
         
         if (index >= [self.sampleRects count] && self.completeCallback) {
-            self.completeCallback();
+            MGSpriteAnimationCallback refToCallback = self.completeCallback;
             // HACK---
             // The callback runs 5 times! How is that?!
             //NSLog(@"Animation complete. Index %d", index);
             self.completeCallback = nil;
             // ---HACK
+            refToCallback();
         }
     }
 }
