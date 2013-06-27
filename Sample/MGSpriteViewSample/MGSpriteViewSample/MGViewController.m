@@ -45,8 +45,10 @@ static const CGFloat kSquirtleHeight = 40;
 - (void)viewDidAppear:(BOOL)animated
 {
     [self.bulbasaur runAnimation];
-    [self.charmander runAnimation];
-    [self.squirtle runAnimation];
+    [self.charmander runAnimationWithCompleteCallback:^{
+        NSLog(@"Charmander animation completed");
+    }];
+    [self.squirtle runAnimationLooped];
 }
 
 #pragma mark - UI
