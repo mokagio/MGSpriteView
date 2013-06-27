@@ -19,6 +19,7 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
 
 - (void)runAnimation;
 - (void)runAnimationWithCompleteCallback:(MGSpriteAnimationCallback)callback;
+- (void)runAnimationLooped;
 
 - (CFTimeInterval)duration;
 

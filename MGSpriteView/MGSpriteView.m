@@ -73,6 +73,13 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     [self.animatedLayer addAnimation:anim forKey:nil];
 }
 
+- (void)runAnimationLooped
+{
+    [self runAnimationWithCompleteCallback:^{
+        [self runAnimationLooped];
+    }];
+}
+
 #pragma mark - Getters
 
 - (CFTimeInterval)duration
