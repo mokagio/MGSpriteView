@@ -19,8 +19,6 @@
 - (NSUInteger)numberOfFrames;
 - (void)setPositionWithSample:(MGSampleRect *)sample;
 - (void)setTransformWithSample:(MGSampleRect *)sample;
-
-- (void)findScaleFactor;
 @end
 
 @implementation MGSpriteView
@@ -28,7 +26,9 @@
 #pragma mark - Designated Initializer
 
 - (id)initWithFrame:(CGRect)frame
-spriteSheetFileName:(NSString *)spriteSheetFilename
+              image:(CGImageRef)image
+        sampleRects:(NSArray *)sampleRects
+        scaleFactor:(CGFloat)scaleFactor
                 fps:(NSUInteger)fps
 {
     self = [super init];
@@ -37,16 +37,8 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
         self.view = [[UIView alloc] initWithFrame:frame];
         self.fps = fps;
         self.completeCallback = nil;
-        
-        CGImageRef image = [[UIImage imageNamed:spriteSheetFilename] CGImage];
-        NSString *plistFileName = [spriteSheetFilename stringByDeletingPathExtension];
-        plistFileName = [plistFileName stringByAppendingPathExtension:@"plist"];
-        MGSpriteSheetParser *parser = [[MGSpriteSheetParser alloc] init];
-        parser.imageRef = image;
-        self.sampleRects = [parser sampleRectsFromFileAtPath:plistFileName];
-        
-        [self findScaleFactor];
-
+        self.sampleRects = sampleRects;
+        self.scaleFactor = scaleFactor;
         self.animatedLayer = [MCSpriteLayer layerWithImage:image];
         self.animatedLayer.delegate = self;
         
@@ -54,6 +46,29 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
         [self.animatedLayer setNeedsDisplay];
     }
     return self;
+}
+
+#pragma mark -
+
+
+- (id)initWithFrame:(CGRect)frame
+spriteSheetFileName:(NSString *)spriteSheetFilename
+                fps:(NSUInteger)fps
+{
+    CGImageRef image = [[UIImage imageNamed:spriteSheetFilename] CGImage];
+    NSString *plistFileName = [spriteSheetFilename stringByDeletingPathExtension];
+    plistFileName = [plistFileName stringByAppendingPathExtension:@"plist"];
+    MGSpriteSheetParser *parser = [[MGSpriteSheetParser alloc] init];
+    parser.imageRef = image;
+    NSArray *sampleRects = [parser sampleRectsFromFileAtPath:plistFileName];
+    CGFloat scaleFactor = [MGSpriteView scaleFactorForSampleRects:sampleRects
+                                                           onRect:frame];
+    
+    return [self initWithFrame:frame
+                         image:image
+                   sampleRects:sampleRects
+                   scaleFactor:scaleFactor
+                           fps:fps];
 }
 
 - (void)runAnimation
@@ -158,11 +173,11 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
 
 #pragma mark - Scaling
 
-- (void)findScaleFactor
++ (CGFloat)scaleFactorForSampleRects:(NSArray *)sampleRects onRect:(CGRect)rect
 {
     CGFloat maxWidth = 0;
     CGFloat maxHeight = 0;
-    for (MGSampleRect *sampleRect in self.sampleRects) {
+    for (MGSampleRect *sampleRect in sampleRects) {
         CGFloat width = sampleRect.rotated ? sampleRect.bounds.size.height : sampleRect.bounds.size.width;
         CGFloat height = sampleRect.rotated ? sampleRect.bounds.size.width : sampleRect.bounds.size.height;
         if (width > maxWidth) {
@@ -173,10 +188,11 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
         }
     }
     
-    CGFloat scaleFactorWidth = self.view.frame.size.width / maxWidth;
-    CGFloat scaleFactorHeight = self.view.frame.size.height / maxHeight;
+    CGFloat scaleFactorWidth = rect.size.width / maxWidth;
+    CGFloat scaleFactorHeight = rect.size.height / maxHeight;
     
-    self.scaleFactor = MIN(scaleFactorHeight, scaleFactorWidth);
+    CGFloat scaleFactor = MIN(scaleFactorHeight, scaleFactorWidth);
+    return scaleFactor;
 }
 
 @end

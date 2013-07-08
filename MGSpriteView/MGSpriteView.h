@@ -13,6 +13,13 @@ typedef void (^MGSpriteAnimationCallback)();
 
 @property (nonatomic, strong) UIView *view;
 
+// Designate Initailizer
+- (id)initWithFrame:(CGRect)frame
+              image:(CGImageRef)image
+        sampleRects:(NSArray *)sampleRects
+        scaleFactor:(CGFloat)scaleFactor
+                fps:(NSUInteger)fps;
+
 - (id)initWithFrame:(CGRect)frame
 spriteSheetFileName:(NSString *)spriteSheetFilename
                 fps:(NSUInteger)fps;
@@ -22,5 +29,7 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
 - (void)runAnimationLooped;
 
 - (CFTimeInterval)duration;
+
++ (CGFloat)scaleFactorForSampleRects:(NSArray *)sampleRects onRect:(CGRect)rect;
 
 @end
