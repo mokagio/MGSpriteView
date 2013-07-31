@@ -32,4 +32,10 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
 
 + (CGFloat)scaleFactorForSampleRects:(NSArray *)sampleRects onRect:(CGRect)rect;
 
+- (void)reloadWithFrame:(CGRect)frame
+                  image:(CGImageRef)image
+            sampleRects:(NSArray *)sampleRects
+            scaleFactor:(CGFloat)scaleFactor
+                    fps:(NSUInteger)fps;
+
 @end

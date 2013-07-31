@@ -195,4 +195,26 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     return scaleFactor;
 }
 
+#pragma mark - Reload
+
+- (void)reloadWithFrame:(CGRect)frame
+                  image:(CGImageRef)image
+            sampleRects:(NSArray *)sampleRects
+            scaleFactor:(CGFloat)scaleFactor
+                    fps:(NSUInteger)fps
+{
+    self.view.frame = frame;
+    self.fps = fps;
+    self.completeCallback = nil;
+    self.sampleRects = sampleRects;
+    self.scaleFactor = scaleFactor;
+    
+    MCSpriteLayer *oldLayer = self.animatedLayer;
+    self.animatedLayer = [MCSpriteLayer layerWithImage:image];
+    self.animatedLayer.delegate = self;
+    [self.animatedLayer setNeedsDisplay];
+    
+    [self.view.layer replaceSublayer:oldLayer with:self.animatedLayer];
+}
+
 @end
