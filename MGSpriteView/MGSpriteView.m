@@ -67,7 +67,7 @@
     if (self.drawingLastFrameElapsedTime >= (1.0f / self.fps) || self.drawingLastFrameElapsedTime == 0.0) {
         if (self.drawingIndex < [self.sampleRects count]) {
             
-            NSLog(@"%f %f", sender.timestamp, self.drawingLastFrameElapsedTime);
+            //NSLog(@"%f %f", sender.timestamp, self.drawingLastFrameElapsedTime);
             self.drawingLastFrameElapsedTime = 0;
             
             if (self.drawingIndex == 0) {
