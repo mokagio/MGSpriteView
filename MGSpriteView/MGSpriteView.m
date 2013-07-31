@@ -19,6 +19,12 @@
 - (NSUInteger)numberOfFrames;
 - (void)setPositionWithSample:(MGSampleRect *)sample;
 - (void)setTransformWithSample:(MGSampleRect *)sample;
+
+@property (nonatomic, strong) CADisplayLink *drawingTimer;
+@property (nonatomic, assign) CGFloat drawingLastTime;
+@property (nonatomic, assign) CGFloat drawingElapsedTime;
+@property (nonatomic, assign) NSUInteger drawingIndex;
+@property (nonatomic, assign) CGFloat drawingLastFrameElapsedTime;
 @end
 
 @implementation MGSpriteView
@@ -46,6 +52,40 @@
         [self.animatedLayer setNeedsDisplay];
     }
     return self;
+}
+
+- (void)redraw:(CADisplayLink *)sender
+{
+    CGFloat timeDelta = 0.0;
+    if (self.drawingLastTime != 0.0) {
+        timeDelta = sender.timestamp - self.drawingLastTime;
+    }
+    self.drawingLastTime = sender.timestamp;
+    self.drawingLastFrameElapsedTime += timeDelta;
+    
+    MGSampleRect *sample = nil;
+    if (self.drawingLastFrameElapsedTime >= (1.0f / self.fps) || self.drawingLastFrameElapsedTime == 0.0) {
+        if (self.drawingIndex < [self.sampleRects count]) {
+            
+            NSLog(@"%f %f", sender.timestamp, self.drawingLastFrameElapsedTime);
+            self.drawingLastFrameElapsedTime = 0;
+            
+            if (self.drawingIndex == 0) {
+                sample = self.sampleRects[self.drawingIndex];
+            } else {
+                sample = self.sampleRects[self.drawingIndex - 1];
+            }
+            
+            self.drawingIndex += 1;
+            
+            [self displayAnimatedLayerWithSample:sample];
+            
+            if (self.drawingIndex >= [self.sampleRects count] && self.completeCallback) {
+                [self.drawingTimer invalidate];
+                self.completeCallback();
+            }
+        }
+    }
 }
 
 #pragma mark -
@@ -80,12 +120,18 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
 {
     self.completeCallback = callback;
     
-    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"sampleIndex"];
-    anim.fromValue = [NSNumber numberWithInt:1];
-    anim.toValue = [NSNumber numberWithInt:self.numberOfFrames + 1];
-    anim.duration = [self duration];
-    anim.repeatCount = 1;
-    [self.animatedLayer addAnimation:anim forKey:nil];
+//    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"sampleIndex"];
+//    anim.fromValue = [NSNumber numberWithInt:1];
+//    anim.toValue = [NSNumber numberWithInt:self.numberOfFrames + 1];
+//    anim.duration = [self duration];
+//    anim.repeatCount = 1;
+//    [self.animatedLayer addAnimation:anim forKey:nil];
+    
+    self.drawingLastTime = 0;
+    self.drawingLastFrameElapsedTime = 0;
+    self.drawingIndex = 0;
+    self.drawingTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(redraw:)];
+    [self.drawingTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
 - (void)runAnimationLooped
