@@ -9,6 +9,11 @@
 
 typedef void (^MGSpriteAnimationCallback)();
 
+typedef enum : NSUInteger {
+    MGSpriteViewAnimationModeDisplayLink = 0,
+    MGSpriteViewAnimationModeCoreAnimation
+} MGSpriteViewAnimationMode;
+
 @interface MGSpriteView : NSObject
 
 @property (nonatomic, strong) UIView *view;
@@ -24,6 +29,10 @@ typedef void (^MGSpriteAnimationCallback)();
 spriteSheetFileName:(NSString *)spriteSheetFilename
                 fps:(NSUInteger)fps;
 
+// Base animation method
+- (void)runAnimationWithMode:(MGSpriteViewAnimationMode)mode
+            completeCallback:(MGSpriteAnimationCallback)callback;
+// Shorthands animation methods
 - (void)runAnimation;
 - (void)runAnimationWithCompleteCallback:(MGSpriteAnimationCallback)callback;
 - (void)runAnimationLooped;
