@@ -24,7 +24,6 @@
 @property (nonatomic, assign) CGFloat drawingLastTime;
 @property (nonatomic, assign) CGFloat drawingElapsedTime;
 @property (nonatomic, assign) NSUInteger drawingIndex;
-@property (nonatomic, assign) CGFloat drawingLastFrameElapsedTime;
 @end
 
 @implementation MGSpriteView
@@ -54,42 +53,6 @@
     return self;
 }
 
-- (void)redraw:(CADisplayLink *)sender
-{
-    CGFloat timeDelta = 0.0;
-    if (self.drawingLastTime != 0.0) {
-        timeDelta = sender.timestamp - self.drawingLastTime;
-    }
-    self.drawingLastTime = sender.timestamp;
-    self.drawingElapsedTime += timeDelta;
-    self.drawingLastFrameElapsedTime += timeDelta;
-
-    NSUInteger newIndex = self.drawingElapsedTime / (1.0 / self.fps);
-    
-    if (newIndex != self.drawingIndex) {
-        
-        if (newIndex < [self.sampleRects count]) {
-            //NSLog(@"%f %f", sender.timestamp, self.drawingLastFrameElapsedTime);
-            self.drawingLastFrameElapsedTime = 0;
-            MGSampleRect *sample = nil;
-            if (newIndex == 0) {
-                sample = self.sampleRects[newIndex];
-            } else {
-                sample = self.sampleRects[newIndex - 1];
-            }
-            [self displayAnimatedLayerWithSample:sample];
-            
-            self.drawingIndex = newIndex;
-        } else {
-            [self.drawingTimer invalidate];
-            if (self.completeCallback) self.completeCallback();
-        }
-    }
-}
-
-#pragma mark -
-
-
 - (id)initWithFrame:(CGRect)frame
 spriteSheetFileName:(NSString *)spriteSheetFilename
                 fps:(NSUInteger)fps
@@ -110,37 +73,6 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
                            fps:fps];
 }
 
-- (void)runAnimation
-{
-    [self runAnimationWithCompleteCallback:nil];
-}
-
-- (void)runAnimationWithCompleteCallback:(MGSpriteAnimationCallback)callback
-{
-    self.completeCallback = callback;
-    
-//    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"sampleIndex"];
-//    anim.fromValue = [NSNumber numberWithInt:1];
-//    anim.toValue = [NSNumber numberWithInt:self.numberOfFrames + 1];
-//    anim.duration = [self duration];
-//    anim.repeatCount = 1;
-//    [self.animatedLayer addAnimation:anim forKey:nil];
-    
-    self.drawingLastTime = 0;
-    self.drawingLastFrameElapsedTime = 0;
-    self.drawingElapsedTime = 0;
-    self.drawingIndex = 0;
-    self.drawingTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(redraw:)];
-    [self.drawingTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-}
-
-- (void)runAnimationLooped
-{
-    [self runAnimationWithCompleteCallback:^{
-        [self runAnimationLooped];
-    }];
-}
-
 #pragma mark - Getters
 
 - (CFTimeInterval)duration
@@ -151,6 +83,104 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
 - (NSUInteger)numberOfFrames
 {
     return [self.sampleRects count];
+}
+
+#pragma mark - Reload
+
+- (void)reloadWithFrame:(CGRect)frame
+                  image:(CGImageRef)image
+            sampleRects:(NSArray *)sampleRects
+            scaleFactor:(CGFloat)scaleFactor
+                    fps:(NSUInteger)fps
+{
+    self.view.frame = frame;
+    self.fps = fps;
+    self.completeCallback = nil;
+    self.sampleRects = sampleRects;
+    self.scaleFactor = scaleFactor;
+    
+    MCSpriteLayer *oldLayer = self.animatedLayer;
+    self.animatedLayer = [MCSpriteLayer layerWithImage:image];
+    self.animatedLayer.delegate = self;
+    [self.animatedLayer setNeedsDisplay];
+    
+    [self.view.layer replaceSublayer:oldLayer with:self.animatedLayer];
+}
+
+#pragma mark - Animation
+
+- (void)runAnimationWithMode:(MGSpriteViewAnimationMode)mode
+            completeCallback:(MGSpriteAnimationCallback)callback
+{
+    self.completeCallback = callback;
+    
+    if (mode == MGSpriteViewAnimationModeCoreAnimation) {
+        CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"sampleIndex"];
+        anim.fromValue = [NSNumber numberWithInt:1];
+        anim.toValue = [NSNumber numberWithInt:self.numberOfFrames + 1];
+        anim.duration = [self duration];
+        anim.repeatCount = 1;
+        [self.animatedLayer addAnimation:anim forKey:nil];
+    }
+    else if (mode == MGSpriteViewAnimationModeDisplayLink) {
+        self.drawingLastTime = 0;
+        self.drawingElapsedTime = 0;
+        self.drawingIndex = 0;
+        self.drawingTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(redraw:)];
+        [self.drawingTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+    }
+}
+
+- (void)runAnimation
+{
+    [self runAnimationWithCompleteCallback:nil];
+}
+
+- (void)runAnimationWithCompleteCallback:(MGSpriteAnimationCallback)callback
+{
+    [self runAnimationWithMode:MGSpriteViewAnimationModeDisplayLink completeCallback:callback];
+}
+
+- (void)runAnimationLooped
+{
+    [self runAnimationWithCompleteCallback:^{
+        [self runAnimationLooped];
+    }];
+}
+
+#pragma mark - Animation - CADisplayLink
+
+- (void)redraw:(CADisplayLink *)sender
+{
+    CGFloat timeDelta = 0.0;
+    if (self.drawingLastTime != 0.0) {
+        timeDelta = sender.timestamp - self.drawingLastTime;
+    }
+    self.drawingLastTime = sender.timestamp;
+    [self updateAnimationWithTimeDelta:timeDelta];
+}
+
+- (void)updateAnimationWithTimeDelta:(CGFloat)timeDelta
+{
+    self.drawingElapsedTime += timeDelta;
+    
+    NSUInteger newIndex = self.drawingElapsedTime / (1.0 / self.fps);
+    if (newIndex != self.drawingIndex) {
+        if (newIndex < [self.sampleRects count]) {
+            MGSampleRect *sample = nil;
+            if (newIndex == 0) {
+                sample = self.sampleRects[newIndex];
+            } else {
+                sample = self.sampleRects[newIndex - 1];
+            }
+            [self displayAnimatedLayerWithSample:sample];
+            
+            self.drawingIndex = newIndex;
+        } else {
+            [self.drawingTimer invalidate];
+            if (self.completeCallback) self.completeCallback();
+        }
+    }
 }
 
 #pragma mark - CALayer Delegate
@@ -239,28 +269,6 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     
     CGFloat scaleFactor = MIN(scaleFactorHeight, scaleFactorWidth);
     return scaleFactor;
-}
-
-#pragma mark - Reload
-
-- (void)reloadWithFrame:(CGRect)frame
-                  image:(CGImageRef)image
-            sampleRects:(NSArray *)sampleRects
-            scaleFactor:(CGFloat)scaleFactor
-                    fps:(NSUInteger)fps
-{
-    self.view.frame = frame;
-    self.fps = fps;
-    self.completeCallback = nil;
-    self.sampleRects = sampleRects;
-    self.scaleFactor = scaleFactor;
-    
-    MCSpriteLayer *oldLayer = self.animatedLayer;
-    self.animatedLayer = [MCSpriteLayer layerWithImage:image];
-    self.animatedLayer.delegate = self;
-    [self.animatedLayer setNeedsDisplay];
-    
-    [self.view.layer replaceSublayer:oldLayer with:self.animatedLayer];
 }
 
 @end
