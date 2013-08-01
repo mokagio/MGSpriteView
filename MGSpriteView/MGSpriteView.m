@@ -61,29 +61,28 @@
         timeDelta = sender.timestamp - self.drawingLastTime;
     }
     self.drawingLastTime = sender.timestamp;
+    self.drawingElapsedTime += timeDelta;
     self.drawingLastFrameElapsedTime += timeDelta;
+
+    NSUInteger newIndex = self.drawingElapsedTime / (1.0 / self.fps);
     
-    MGSampleRect *sample = nil;
-    if (self.drawingLastFrameElapsedTime >= (1.0f / self.fps) || self.drawingLastFrameElapsedTime == 0.0) {
-        if (self.drawingIndex < [self.sampleRects count]) {
-            
+    if (newIndex != self.drawingIndex) {
+        
+        if (newIndex < [self.sampleRects count]) {
             //NSLog(@"%f %f", sender.timestamp, self.drawingLastFrameElapsedTime);
             self.drawingLastFrameElapsedTime = 0;
-            
-            if (self.drawingIndex == 0) {
-                sample = self.sampleRects[self.drawingIndex];
+            MGSampleRect *sample = nil;
+            if (newIndex == 0) {
+                sample = self.sampleRects[newIndex];
             } else {
-                sample = self.sampleRects[self.drawingIndex - 1];
+                sample = self.sampleRects[newIndex - 1];
             }
-            
-            self.drawingIndex += 1;
-            
             [self displayAnimatedLayerWithSample:sample];
             
-            if (self.drawingIndex >= [self.sampleRects count] && self.completeCallback) {
-                [self.drawingTimer invalidate];
-                self.completeCallback();
-            }
+            self.drawingIndex = newIndex;
+        } else {
+            [self.drawingTimer invalidate];
+            if (self.completeCallback) self.completeCallback();
         }
     }
 }
@@ -129,6 +128,7 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     
     self.drawingLastTime = 0;
     self.drawingLastFrameElapsedTime = 0;
+    self.drawingElapsedTime = 0;
     self.drawingIndex = 0;
     self.drawingTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(redraw:)];
     [self.drawingTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
