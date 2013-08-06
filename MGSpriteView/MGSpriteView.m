@@ -126,6 +126,11 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
         self.drawingLastTime = 0;
         self.drawingElapsedTime = 0;
         self.drawingIndex = 0;
+        
+        // In case there's a drawingTimer instance already, invalidate it.
+        // Otherwise we risk to have the redraw being called multiple time and messing with the animation
+        if (self.drawingTimer) [self.drawingTimer invalidate];
+        
         self.drawingTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(redraw:)];
         [self.drawingTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
     }
