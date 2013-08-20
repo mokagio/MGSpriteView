@@ -92,7 +92,14 @@ static const CGFloat kSquirtleHeight = 40;
     MGSpriteView *blastoise1 = [[MGSpriteView alloc] initWithFrame:frame
                                                spriteSheetFileName:@"blastoise-s.png"
                                                                fps:fps];
-    self.blastoise = [[MGSpriteAnimationSequence alloc] initWithAnimations:@[blastoise0, blastoise1]];
+    MGSpriteView *blastoiseBack = [[MGSpriteView alloc] initWithFrame:CGRectMake(0, 0, 32 * 2, 31 * 2)
+                                                  spriteSheetFileName:@"blastoise_back.png"
+                                                                  fps:fps];
+    self.blastoise = [[MGSpriteAnimationSequence alloc] initWithAnimations:@[
+                      blastoise0,
+//                      blastoise1,
+                      blastoiseBack
+                      ]];
     [self.view addSubview:self.blastoise.view];
 }
 

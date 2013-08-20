@@ -40,6 +40,9 @@
 		3FF8581417C3B9740075690F /* blastoise-s.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FF8581117C3B9740075690F /* blastoise-s.plist */; };
 		3FF8581517C3B9740075690F /* blastoise-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF8581217C3B9740075690F /* blastoise-s.png */; };
 		3FF8581617C3B9740075690F /* blastoise-s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF8581317C3B9740075690F /* blastoise-s@2x.png */; };
+		3FF8581A17C3CAEC0075690F /* blastoise_back.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FF8581717C3CAEC0075690F /* blastoise_back.plist */; };
+		3FF8581B17C3CAEC0075690F /* blastoise_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF8581817C3CAEC0075690F /* blastoise_back.png */; };
+		3FF8581C17C3CAEC0075690F /* blastoise_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF8581917C3CAEC0075690F /* blastoise_back@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +89,9 @@
 		3FF8581117C3B9740075690F /* blastoise-s.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blastoise-s.plist"; sourceTree = "<group>"; };
 		3FF8581217C3B9740075690F /* blastoise-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blastoise-s.png"; sourceTree = "<group>"; };
 		3FF8581317C3B9740075690F /* blastoise-s@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blastoise-s@2x.png"; sourceTree = "<group>"; };
+		3FF8581717C3CAEC0075690F /* blastoise_back.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = blastoise_back.plist; sourceTree = "<group>"; };
+		3FF8581817C3CAEC0075690F /* blastoise_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blastoise_back.png; sourceTree = "<group>"; };
+		3FF8581917C3CAEC0075690F /* blastoise_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blastoise_back@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +197,9 @@
 				3FF8581117C3B9740075690F /* blastoise-s.plist */,
 				3FF8581217C3B9740075690F /* blastoise-s.png */,
 				3FF8581317C3B9740075690F /* blastoise-s@2x.png */,
+				3FF8581717C3CAEC0075690F /* blastoise_back.plist */,
+				3FF8581817C3CAEC0075690F /* blastoise_back.png */,
+				3FF8581917C3CAEC0075690F /* blastoise_back@2x.png */,
 				3FF857FC17C393A10075690F /* charmander.plist */,
 				3FF857FD17C393A10075690F /* charmander.png */,
 				3FF857FE17C393A10075690F /* charmander@2x.png */,
@@ -274,6 +283,9 @@
 				3FF8581417C3B9740075690F /* blastoise-s.plist in Resources */,
 				3FF8581517C3B9740075690F /* blastoise-s.png in Resources */,
 				3FF8581617C3B9740075690F /* blastoise-s@2x.png in Resources */,
+				3FF8581A17C3CAEC0075690F /* blastoise_back.plist in Resources */,
+				3FF8581B17C3CAEC0075690F /* blastoise_back.png in Resources */,
+				3FF8581C17C3CAEC0075690F /* blastoise_back@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
