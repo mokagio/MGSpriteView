@@ -24,7 +24,19 @@
         self.animations = animations;
         self.animationIndex = 0;
         self.callback = nil;
-        self.currentAnimation = self.animations[self.animationIndex];
+        
+        // We need another instance of the animation because we're gonna reload it's settings
+        // and we don't want to change the original ones, as doing this would do:
+        // self.currentAnimation = self.animations[self.animationIndex];
+        self.currentAnimation = [[MGSpriteView alloc] initWithFrame:CGRectZero
+                                                spriteSheetFileName:@""
+                                                                fps:0];
+        MGSpriteView *newAnimation = self.animations[self.animationIndex];
+        [self.currentAnimation reloadWithFrame:newAnimation.view.frame
+                                         image:newAnimation.image
+                                   sampleRects:newAnimation.sampleRects
+                                   scaleFactor:newAnimation.scaleFactor
+                                           fps:newAnimation.fps];
     }
     return self;
 }
@@ -40,7 +52,7 @@
 {
     MGSpriteView *newAnimation = self.animations[self.animationIndex];
     CGRect frame = newAnimation.view.frame;
-    if (self.animationIndex > 0) frame.origin = self.currentAnimation.view.frame.origin;
+    frame.origin = self.currentAnimation.view.frame.origin;
     [self.currentAnimation reloadWithFrame:frame
                                      image:newAnimation.image
                                sampleRects:newAnimation.sampleRects

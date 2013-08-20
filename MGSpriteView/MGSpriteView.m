@@ -55,6 +55,8 @@
     return self;
 }
 
+#pragma mark - Other Initializers
+
 - (id)initWithFrame:(CGRect)frame
 spriteSheetFileName:(NSString *)spriteSheetFilename
                 fps:(NSUInteger)fps
@@ -100,7 +102,7 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     self.completeCallback = nil;
     self.sampleRects = sampleRects;
     self.scaleFactor = scaleFactor;
-    
+    self.image = image;
     MCSpriteLayer *oldLayer = self.animatedLayer;
     self.animatedLayer = [MCSpriteLayer layerWithImage:image];
     self.animatedLayer.delegate = self;
