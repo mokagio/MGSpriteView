@@ -36,10 +36,7 @@ static const CGFloat kSquirtleHeight = 40;
     [self addBulbasaur];
     [self addCharmander];
     [self addSquirtle];
-    
-    self.bulbasaur.view.center = CGPointMake(50, 100);
-    self.charmander.view.center = CGPointMake(150, 200);
-    self.squirtle.view.center = CGPointMake(250, 300);
+    [self orderElements];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -78,6 +75,23 @@ static const CGFloat kSquirtleHeight = 40;
                                     spriteSheetFileName:@"squirtle.png"
                                                     fps:12];
     [self.view addSubview:self.squirtle.view];
+}
+
+- (void)orderElements
+{
+    CGFloat padding = 30;
+    
+    CGRect bFrame = self.bulbasaur.view.frame;
+    bFrame.origin = CGPointMake(padding, padding);
+    self.bulbasaur.view.frame = bFrame;
+    
+    CGRect cFrame = self.charmander.view.frame;
+    cFrame.origin = CGPointMake(padding, CGRectGetMaxY(self.bulbasaur.view.frame) + padding);
+    self.charmander.view.frame = cFrame;
+    
+    CGRect sFrame = self.squirtle.view.frame;
+    sFrame.origin = CGPointMake(padding, CGRectGetMaxY(self.charmander.view.frame) + padding);
+    self.squirtle.view.frame = sFrame;
 }
 
 @end
