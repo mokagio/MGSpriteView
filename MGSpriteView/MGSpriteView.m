@@ -62,11 +62,14 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
                 fps:(NSUInteger)fps
 {
     CGImageRef image = [[UIImage imageNamed:spriteSheetFilename] CGImage];
-    NSString *plistFileName = [spriteSheetFilename stringByDeletingPathExtension];
-    plistFileName = [plistFileName stringByAppendingPathExtension:@"plist"];
-    MGSpriteSheetParser *parser = [[MGSpriteSheetParser alloc] init];
-    parser.imageRef = image;
-    NSArray *sampleRects = [parser sampleRectsFromFileAtPath:plistFileName];
+    NSArray *sampleRects = nil;
+    if (spriteSheetFilename && ![spriteSheetFilename isEqualToString:@""]) {
+        NSString *plistFileName = [spriteSheetFilename stringByDeletingPathExtension];
+        plistFileName = [plistFileName stringByAppendingPathExtension:@"plist"];
+        MGSpriteSheetParser *parser = [[MGSpriteSheetParser alloc] init];
+        parser.imageRef = image;
+        sampleRects = [parser sampleRectsFromFileAtPath:plistFileName];
+    }
     CGFloat scaleFactor = [MGSpriteView scaleFactorForSampleRects:sampleRects
                                                            onRect:frame];
     

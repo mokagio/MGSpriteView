@@ -29,7 +29,7 @@
         // and we don't want to change the original ones, as doing this would do:
         // self.currentAnimation = self.animations[self.animationIndex];
         self.currentAnimation = [[MGSpriteView alloc] initWithFrame:CGRectZero
-                                                spriteSheetFileName:@""
+                                                spriteSheetFileName:nil
                                                                 fps:0];
         MGSpriteView *newAnimation = self.animations[self.animationIndex];
         [self.currentAnimation reloadWithFrame:newAnimation.view.frame
