@@ -38,29 +38,22 @@
 
 - (void)runCurrentAnimation
 {
-    CGRect currentFrame = self.currentAnimation.view.frame;
-    
     MGSpriteView *newAnimation = self.animations[self.animationIndex];
-    
     CGRect frame = newAnimation.view.frame;
-    frame.origin = currentFrame.origin;
-    CGImageRef image = newAnimation.image;
-    NSArray *samples = newAnimation.sampleRects;
-    CGFloat scaleFactor = newAnimation.scaleFactor;
-    NSUInteger fps = newAnimation.fps;
+    if (self.animationIndex > 0) frame.origin = self.currentAnimation.view.frame.origin;
     [self.currentAnimation reloadWithFrame:frame
-                                     image:image
-                               sampleRects:samples
-                               scaleFactor:scaleFactor
-                                       fps:fps];
+                                     image:newAnimation.image
+                               sampleRects:newAnimation.sampleRects
+                               scaleFactor:newAnimation.scaleFactor
+                                       fps:newAnimation.fps];
     
     [self.currentAnimation runAnimationWithMode:MGSpriteViewAnimationModeDisplayLink
                                completeCallback:^{
-                                   if (self.animationIndex + 1 == [self.animations count]) {
-                                       if (self.callback) self.callback();
-                                   } else {
-                                       self.animationIndex++;
+                                   self.animationIndex++;
+                                   if (self.animationIndex < [self.animations count]) {
                                        [self runCurrentAnimation];
+                                   } else {
+                                       if (self.callback) self.callback();
                                    }
                                }];
 }
