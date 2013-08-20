@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSArray *sampleRects;
 @property (nonatomic, assign) NSUInteger fps;
 @property (nonatomic, assign) CGFloat scaleFactor;
+@property (nonatomic, assign) CGImageRef image;
 @property (nonatomic, strong) MGSpriteAnimationCallback completeCallback;
 - (NSUInteger)numberOfFrames;
 - (void)setPositionWithSample:(MGSampleRect *)sample;
@@ -44,7 +45,8 @@
         self.completeCallback = nil;
         self.sampleRects = sampleRects;
         self.scaleFactor = scaleFactor;
-        self.animatedLayer = [MCSpriteLayer layerWithImage:image];
+        self.image = image;
+        self.animatedLayer = [MCSpriteLayer layerWithImage:self.image];
         self.animatedLayer.delegate = self;
         
         [self.view.layer addSublayer:self.animatedLayer];
@@ -215,6 +217,14 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
             refToCallback();
         }
     }
+}
+
+#pragma mark - Pause
+
+- (void)pause
+{
+    // TODO - It doesn't handle the CAAnimation case!!!
+    [self.drawingTimer setPaused:YES];
 }
 
 #pragma mark - 

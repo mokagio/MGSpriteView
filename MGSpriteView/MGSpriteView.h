@@ -17,6 +17,10 @@ typedef enum : NSUInteger {
 @interface MGSpriteView : NSObject
 
 @property (nonatomic, strong) UIView *view;
+@property (nonatomic, strong, readonly) NSArray *sampleRects;
+@property (nonatomic, assign, readonly) CGImageRef image;
+@property (nonatomic, assign, readonly) CGFloat scaleFactor;
+@property (nonatomic, assign, readonly) NSUInteger fps;
 
 // Designate Initailizer
 - (id)initWithFrame:(CGRect)frame
@@ -36,6 +40,8 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
 - (void)runAnimation;
 - (void)runAnimationWithCompleteCallback:(MGSpriteAnimationCallback)callback;
 - (void)runAnimationLooped;
+
+- (void)pause;
 
 - (CFTimeInterval)duration;
 
