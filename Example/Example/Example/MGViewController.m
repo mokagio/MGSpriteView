@@ -8,6 +8,7 @@
 
 #import "MGViewController.h"
 #import "MGSpriteView.h"
+#import "MGSpriteAnimationSequence.h"
 
 static const CGFloat kBulbasaurWidth = 49;
 static const CGFloat kBulbasaurHeight = 45;
@@ -22,6 +23,7 @@ static const CGFloat kSquirtleHeight = 40;
 @property (nonatomic, strong) MGSpriteView *bulbasaur;
 @property (nonatomic, strong) MGSpriteView *charmander;
 @property (nonatomic, strong) MGSpriteView *squirtle;
+@property (nonatomic, strong) MGSpriteAnimationSequence *blastoise;
 - (void)addBulbasaur;
 - (void)addCharmander;
 - (void)addSquirtle;
@@ -36,6 +38,8 @@ static const CGFloat kSquirtleHeight = 40;
     [self addBulbasaur];
     [self addCharmander];
     [self addSquirtle];
+    [self addBlastoise];
+    
     [self orderElements];
 }
 
@@ -46,6 +50,7 @@ static const CGFloat kSquirtleHeight = 40;
         NSLog(@"Charmander animation completed");
     }];
     [self.squirtle runAnimationLooped];
+    [self.blastoise runLooped];
 }
 
 #pragma mark - UI
@@ -77,6 +82,20 @@ static const CGFloat kSquirtleHeight = 40;
     [self.view addSubview:self.squirtle.view];
 }
 
+- (void)addBlastoise
+{
+    CGRect frame = CGRectMake(0, 0, 33.5 * 2, 31.5 * 2);
+    CGFloat fps = 24;
+    MGSpriteView *blastoise0 = [[MGSpriteView alloc] initWithFrame:frame
+                                               spriteSheetFileName:@"blastoise.png"
+                                                               fps:fps];
+    MGSpriteView *blastoise1 = [[MGSpriteView alloc] initWithFrame:frame
+                                               spriteSheetFileName:@"blastoise-s.png"
+                                                               fps:fps];
+    self.blastoise = [[MGSpriteAnimationSequence alloc] initWithAnimations:@[blastoise0, blastoise1]];
+    [self.view addSubview:self.blastoise.view];
+}
+
 - (void)orderElements
 {
     CGFloat padding = 30;
@@ -92,6 +111,10 @@ static const CGFloat kSquirtleHeight = 40;
     CGRect sFrame = self.squirtle.view.frame;
     sFrame.origin = CGPointMake(padding, CGRectGetMaxY(self.charmander.view.frame) + padding);
     self.squirtle.view.frame = sFrame;
+    
+    CGRect blFrame = self.blastoise.view.frame;
+    blFrame.origin = CGPointMake(padding, CGRectGetMaxY(self.squirtle.view.frame) + padding);
+    self.blastoise.view.frame = blFrame;
 }
 
 @end
