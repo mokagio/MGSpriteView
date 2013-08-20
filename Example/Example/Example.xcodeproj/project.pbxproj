@@ -19,6 +19,21 @@
 		3FF857DA17C391FB0075690F /* MGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF857D917C391FB0075690F /* MGViewController.m */; };
 		3FF857DD17C391FB0075690F /* MGViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF857DB17C391FB0075690F /* MGViewController_iPhone.xib */; };
 		3FF857E017C391FB0075690F /* MGViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF857DE17C391FB0075690F /* MGViewController_iPad.xib */; };
+		3FF857F117C392AE0075690F /* MCSpriteLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF857E817C392AE0075690F /* MCSpriteLayer.m */; };
+		3FF857F217C392AE0075690F /* MGSampleRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF857EA17C392AE0075690F /* MGSampleRect.m */; };
+		3FF857F317C392AE0075690F /* MGSpriteAnimationSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF857EC17C392AE0075690F /* MGSpriteAnimationSequence.m */; };
+		3FF857F417C392AE0075690F /* MGSpriteSheetParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF857EE17C392AE0075690F /* MGSpriteSheetParser.m */; };
+		3FF857F517C392AE0075690F /* MGSpriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF857F017C392AE0075690F /* MGSpriteView.m */; };
+		3FF857F717C393010075690F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF857F617C393010075690F /* QuartzCore.framework */; };
+		3FF8580217C393A10075690F /* bulbasaur.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FF857F917C393A10075690F /* bulbasaur.plist */; };
+		3FF8580317C393A10075690F /* bulbasaur.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF857FA17C393A10075690F /* bulbasaur.png */; };
+		3FF8580417C393A10075690F /* bulbasaur@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF857FB17C393A10075690F /* bulbasaur@2x.png */; };
+		3FF8580517C393A10075690F /* charmander.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FF857FC17C393A10075690F /* charmander.plist */; };
+		3FF8580617C393A10075690F /* charmander.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF857FD17C393A10075690F /* charmander.png */; };
+		3FF8580717C393A10075690F /* charmander@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF857FE17C393A10075690F /* charmander@2x.png */; };
+		3FF8580817C393A10075690F /* squirtle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FF857FF17C393A10075690F /* squirtle.plist */; };
+		3FF8580917C393A10075690F /* squirtle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF8580017C393A10075690F /* squirtle.png */; };
+		3FF8580A17C393A10075690F /* squirtle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF8580117C393A10075690F /* squirtle@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +54,26 @@
 		3FF857D917C391FB0075690F /* MGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGViewController.m; sourceTree = "<group>"; };
 		3FF857DC17C391FB0075690F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MGViewController_iPhone.xib; sourceTree = "<group>"; };
 		3FF857DF17C391FB0075690F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MGViewController_iPad.xib; sourceTree = "<group>"; };
+		3FF857E717C392AE0075690F /* MCSpriteLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSpriteLayer.h; sourceTree = "<group>"; };
+		3FF857E817C392AE0075690F /* MCSpriteLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSpriteLayer.m; sourceTree = "<group>"; };
+		3FF857E917C392AE0075690F /* MGSampleRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSampleRect.h; sourceTree = "<group>"; };
+		3FF857EA17C392AE0075690F /* MGSampleRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSampleRect.m; sourceTree = "<group>"; };
+		3FF857EB17C392AE0075690F /* MGSpriteAnimationSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSpriteAnimationSequence.h; sourceTree = "<group>"; };
+		3FF857EC17C392AE0075690F /* MGSpriteAnimationSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSpriteAnimationSequence.m; sourceTree = "<group>"; };
+		3FF857ED17C392AE0075690F /* MGSpriteSheetParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSpriteSheetParser.h; sourceTree = "<group>"; };
+		3FF857EE17C392AE0075690F /* MGSpriteSheetParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSpriteSheetParser.m; sourceTree = "<group>"; };
+		3FF857EF17C392AE0075690F /* MGSpriteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSpriteView.h; sourceTree = "<group>"; };
+		3FF857F017C392AE0075690F /* MGSpriteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSpriteView.m; sourceTree = "<group>"; };
+		3FF857F617C393010075690F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3FF857F917C393A10075690F /* bulbasaur.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bulbasaur.plist; sourceTree = "<group>"; };
+		3FF857FA17C393A10075690F /* bulbasaur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bulbasaur.png; sourceTree = "<group>"; };
+		3FF857FB17C393A10075690F /* bulbasaur@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bulbasaur@2x.png"; sourceTree = "<group>"; };
+		3FF857FC17C393A10075690F /* charmander.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = charmander.plist; sourceTree = "<group>"; };
+		3FF857FD17C393A10075690F /* charmander.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = charmander.png; sourceTree = "<group>"; };
+		3FF857FE17C393A10075690F /* charmander@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "charmander@2x.png"; sourceTree = "<group>"; };
+		3FF857FF17C393A10075690F /* squirtle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = squirtle.plist; sourceTree = "<group>"; };
+		3FF8580017C393A10075690F /* squirtle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squirtle.png; sourceTree = "<group>"; };
+		3FF8580117C393A10075690F /* squirtle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "squirtle@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FF857F717C393010075690F /* QuartzCore.framework in Frameworks */,
 				3FF857C117C391FB0075690F /* UIKit.framework in Frameworks */,
 				3FF857C317C391FB0075690F /* Foundation.framework in Frameworks */,
 				3FF857C517C391FB0075690F /* CoreGraphics.framework in Frameworks */,
@@ -59,7 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				3FF857C617C391FB0075690F /* Example */,
+				3FF857E617C392AE0075690F /* MGSpriteView */,
 				3FF857BF17C391FB0075690F /* Frameworks */,
+				3FF857F817C393A10075690F /* Resources */,
 				3FF857BE17C391FB0075690F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +113,7 @@
 		3FF857BF17C391FB0075690F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3FF857F617C393010075690F /* QuartzCore.framework */,
 				3FF857C017C391FB0075690F /* UIKit.framework */,
 				3FF857C217C391FB0075690F /* Foundation.framework */,
 				3FF857C417C391FB0075690F /* CoreGraphics.framework */,
@@ -108,6 +147,40 @@
 				3FF857D617C391FB0075690F /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3FF857E617C392AE0075690F /* MGSpriteView */ = {
+			isa = PBXGroup;
+			children = (
+				3FF857E717C392AE0075690F /* MCSpriteLayer.h */,
+				3FF857E817C392AE0075690F /* MCSpriteLayer.m */,
+				3FF857E917C392AE0075690F /* MGSampleRect.h */,
+				3FF857EA17C392AE0075690F /* MGSampleRect.m */,
+				3FF857EB17C392AE0075690F /* MGSpriteAnimationSequence.h */,
+				3FF857EC17C392AE0075690F /* MGSpriteAnimationSequence.m */,
+				3FF857ED17C392AE0075690F /* MGSpriteSheetParser.h */,
+				3FF857EE17C392AE0075690F /* MGSpriteSheetParser.m */,
+				3FF857EF17C392AE0075690F /* MGSpriteView.h */,
+				3FF857F017C392AE0075690F /* MGSpriteView.m */,
+			);
+			name = MGSpriteView;
+			path = ../../MGSpriteView;
+			sourceTree = "<group>";
+		};
+		3FF857F817C393A10075690F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3FF857F917C393A10075690F /* bulbasaur.plist */,
+				3FF857FA17C393A10075690F /* bulbasaur.png */,
+				3FF857FB17C393A10075690F /* bulbasaur@2x.png */,
+				3FF857FC17C393A10075690F /* charmander.plist */,
+				3FF857FD17C393A10075690F /* charmander.png */,
+				3FF857FE17C393A10075690F /* charmander@2x.png */,
+				3FF857FF17C393A10075690F /* squirtle.plist */,
+				3FF8580017C393A10075690F /* squirtle.png */,
+				3FF8580117C393A10075690F /* squirtle@2x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +241,15 @@
 				3FF857D717C391FB0075690F /* Default-568h@2x.png in Resources */,
 				3FF857DD17C391FB0075690F /* MGViewController_iPhone.xib in Resources */,
 				3FF857E017C391FB0075690F /* MGViewController_iPad.xib in Resources */,
+				3FF8580217C393A10075690F /* bulbasaur.plist in Resources */,
+				3FF8580317C393A10075690F /* bulbasaur.png in Resources */,
+				3FF8580417C393A10075690F /* bulbasaur@2x.png in Resources */,
+				3FF8580517C393A10075690F /* charmander.plist in Resources */,
+				3FF8580617C393A10075690F /* charmander.png in Resources */,
+				3FF8580717C393A10075690F /* charmander@2x.png in Resources */,
+				3FF8580817C393A10075690F /* squirtle.plist in Resources */,
+				3FF8580917C393A10075690F /* squirtle.png in Resources */,
+				3FF8580A17C393A10075690F /* squirtle@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +263,11 @@
 				3FF857CD17C391FB0075690F /* main.m in Sources */,
 				3FF857D117C391FB0075690F /* MGAppDelegate.m in Sources */,
 				3FF857DA17C391FB0075690F /* MGViewController.m in Sources */,
+				3FF857F117C392AE0075690F /* MCSpriteLayer.m in Sources */,
+				3FF857F217C392AE0075690F /* MGSampleRect.m in Sources */,
+				3FF857F317C392AE0075690F /* MGSpriteAnimationSequence.m in Sources */,
+				3FF857F417C392AE0075690F /* MGSpriteSheetParser.m in Sources */,
+				3FF857F517C392AE0075690F /* MGSpriteView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
