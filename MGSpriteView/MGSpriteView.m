@@ -17,6 +17,7 @@
 @property (nonatomic, assign) CGFloat scaleFactor;
 @property (nonatomic, assign) CGImageRef image;
 @property (nonatomic, strong) MGSpriteAnimationCallback completeCallback;
+@property (nonatomic, assign) MGSpriteViewAnimationMode animationMode;
 - (NSUInteger)numberOfFrames;
 - (void)setPositionWithSample:(MGSampleRect *)sample;
 - (void)setTransformWithSample:(MGSampleRect *)sample;
@@ -120,6 +121,7 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
             completeCallback:(MGSpriteAnimationCallback)callback
 {
     self.completeCallback = callback;
+    self.animationMode = mode;
     
     if (mode == MGSpriteViewAnimationModeCoreAnimation) {
         CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"sampleIndex"];
