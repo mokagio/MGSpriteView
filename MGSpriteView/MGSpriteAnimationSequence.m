@@ -84,7 +84,14 @@
     self.animations = animations;
     self.animationIndex = 0;
     self.callback = nil;
-    self.currentAnimation = self.animations[self.animationIndex];
+    MGSpriteView *newAnimation = self.animations[self.animationIndex];
+    CGRect frame = newAnimation.view.frame;
+    frame.origin = self.currentAnimation.view.frame.origin;
+    [self.currentAnimation reloadWithFrame:frame
+                                     image:newAnimation.image
+                               sampleRects:newAnimation.sampleRects
+                               scaleFactor:newAnimation.scaleFactor
+                                       fps:newAnimation.fps];
 }
 
 #pragma mark - Pause
