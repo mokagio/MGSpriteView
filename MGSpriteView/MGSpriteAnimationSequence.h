@@ -21,4 +21,6 @@
 
 - (void)reloadWithAnimations:(NSArray *)animations;
 
+- (void)pause;
+
 @end

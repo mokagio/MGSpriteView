@@ -87,6 +87,13 @@
     self.currentAnimation = self.animations[self.animationIndex];
 }
 
+#pragma mark - Pause
+
+- (void)pause
+{
+    [self.currentAnimation pause];
+}
+
 #pragma mark - View
 
 - (UIView *)view
