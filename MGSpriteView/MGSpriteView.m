@@ -16,7 +16,7 @@
 @property (nonatomic, assign) NSUInteger fps;
 @property (nonatomic, assign) CGFloat scaleFactor;
 @property (nonatomic, assign) CGImageRef image;
-@property (nonatomic, strong) MGSpriteAnimationCallback completeCallback;
+@property (nonatomic, copy) MGSpriteAnimationCallback completeCallback;
 @property (nonatomic, assign) MGSpriteViewAnimationMode animationMode;
 - (NSUInteger)numberOfFrames;
 - (void)setPositionWithSample:(MGSampleRect *)sample;
@@ -79,6 +79,17 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
                    sampleRects:sampleRects
                    scaleFactor:scaleFactor
                            fps:fps];
+}
+
+- (void)dealloc
+{
+	NSLog(@"### dealloc %@",NSStringFromClass([self class]));
+	[self.drawingTimer invalidate];
+	[self.animatedLayer removeFromSuperlayer];
+	[self.view removeFromSuperview];
+	self.drawingTimer = nil;
+	self.animatedLayer = nil;
+	self.view = nil;
 }
 
 #pragma mark - Getters
@@ -234,7 +245,7 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     [self.drawingTimer setPaused:YES];
 }
 
-#pragma mark - 
+#pragma mark -
 
 - (void)displayAnimatedLayerWithSample:(MGSampleRect *)sample
 {
