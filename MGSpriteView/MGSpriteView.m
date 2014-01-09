@@ -16,6 +16,7 @@
 @property (nonatomic, assign) NSUInteger fps;
 @property (nonatomic, assign) CGFloat scaleFactor;
 @property (nonatomic, strong) MGSpriteAnimationCallback completeCallback;
+@property (nonatomic, strong) UILabel *nameLabel;
 - (NSUInteger)numberOfFrames;
 - (void)setPositionWithSample:(MGSampleRect *)sample;
 - (void)setTransformWithSample:(MGSampleRect *)sample;
@@ -99,6 +100,18 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     [self.animatedLayer addAnimation:anim forKey:nil];
 }
 
+- (void)pauseAnimation
+{
+    [self pauseAnimationWithCompleteCallback:nil];
+}
+
+- (void)pauseAnimationWithCompleteCallback:(MGSpriteAnimationCallback)callback
+{
+    self.completeCallback = callback;
+
+    [self.animatedLayer removeAllAnimations];
+}
+
 #pragma mark - Getters
 
 - (CFTimeInterval)duration
@@ -147,6 +160,26 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     self.animatedLayer.contentsRect = sample.contentRect;
     [self setPositionWithSample:sample];
     [self setTransformWithSample:sample];
+    
+    if (self.nameLabel == nil) {
+        CGRect frame = sample.bounds;
+        
+        self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 400, 100)];
+        self.nameLabel.textColor = [UIColor whiteColor];
+        self.nameLabel.textAlignment = NSTextAlignmentCenter;
+        self.nameLabel.font = [UIFont boldSystemFontOfSize:24];
+        self.nameLabel.numberOfLines = 3;
+        
+        self.nameLabel.center = CGPointMake(frame.origin.x + frame.size.width / 2.0,
+                                            frame.size.height);
+        
+        [self.animatedLayer addSublayer:self.nameLabel.layer];
+    }
+    
+    if (sample.name != nil) {
+        self.nameLabel.text = [NSString stringWithFormat:@"%@\n"
+                               "sample.size(%@)", sample.name, NSStringFromCGSize(sample.sourceSize)];
+    }
 }
 
 - (void)setPositionWithSample:(MGSampleRect *)sample
@@ -181,6 +214,7 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     CGFloat maxWidth = 0;
     CGFloat maxHeight = 0;
     for (MGSampleRect *sampleRect in self.sampleRects) {
+        
         CGFloat width = sampleRect.rotated ? sampleRect.bounds.size.height : sampleRect.bounds.size.width;
         CGFloat height = sampleRect.rotated ? sampleRect.bounds.size.width : sampleRect.bounds.size.height;
         if (width > maxWidth) {

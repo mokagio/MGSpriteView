@@ -179,26 +179,26 @@
         NSString *size = [items objectForKey:@"size"]; // Actual size of original texture.
         NSArray *subimages = [items objectForKey:@"subimages"];
         
-        [subimages enumerateObjectsWithOptions:NSEnumerationConcurrent
-                                    usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                                        
-                                        //NSString *name = [obj objectForKey:@"name"];
-                                        NSString *offset = [obj objectForKey:@"spriteOffset"];
-                                        NSString *sourceSize = [obj objectForKey:@"spriteSourceSize"];
-                                        NSString *frame = [obj objectForKey:@"textureRect"];
-                                        BOOL rotated = [[obj objectForKey:@"textureRotated"] boolValue];
-                                        
-                                        MGSampleRect *sample = [[MGSampleRect alloc] initWithImageSize:[self sizeFromString:size]
-                                                                                                 frame:[self rectFromString:frame]
-                                                                                                offset:[self pointFromString:offset]
-                                                                                               rotated:rotated
-                                                                                       sourceColorRect:[self rectFromString:sourceSize]
-                                                                                            sourceSize:[self sizeFromString:sourceSize]];
-                                        [samples addObject:sample];
-                                        
-                                    }];
+        for (NSDictionary *obj in subimages) {
+            NSString *name = [obj objectForKey:@"name"];
+            NSString *offset = [obj objectForKey:@"spriteOffset"];
+            NSString *sourceSize = [obj objectForKey:@"spriteSourceSize"];
+            NSString *frame = [obj objectForKey:@"textureRect"];
+            BOOL rotated = [[obj objectForKey:@"textureRotated"] boolValue];
+            
+            MGSampleRect *sample = [[MGSampleRect alloc] initWithImageSize:[self sizeFromString:size]
+                                                                     frame:[self rectFromString:frame]
+                                                                    offset:[self pointFromString:offset]
+                                                                   rotated:rotated
+                                                           sourceColorRect:[self rectFromString:sourceSize]
+                                                                sourceSize:[self sizeFromString:sourceSize]
+                                                                     named:name];
+            [samples addObject:sample];
+        }
         
         return samples;
+
+        
     } else {
         NSLog(@"MGSpriteSheetParser: no data or not matched format of plist(APPL)");
         

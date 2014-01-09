@@ -15,6 +15,7 @@
 @property (nonatomic, readonly, assign) BOOL rotated;
 @property (nonatomic, readonly, assign) CGRect sourceColorRect;
 @property (nonatomic, readonly, assign) CGSize sourceSize;
+@property (nonatomic, readonly, retain) NSString *name;
 
 - (id)initWithImageSize:(CGSize)size
                   frame:(CGRect)frame
@@ -22,6 +23,14 @@
                 rotated:(BOOL)rotated
         sourceColorRect:(CGRect)sourceColorRect
              sourceSize:(CGSize)sourceSize;
+
+- (id)initWithImageSize:(CGSize)size
+                  frame:(CGRect)frame
+                 offset:(CGPoint)offset
+                rotated:(BOOL)rotated
+        sourceColorRect:(CGRect)sourceColorRect
+             sourceSize:(CGSize)sourceSize
+                  named:(NSString *)name;
 
 - (NSString *)description;
 

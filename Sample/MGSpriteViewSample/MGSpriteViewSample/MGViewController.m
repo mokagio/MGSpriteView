@@ -43,7 +43,7 @@ static const CGFloat kSquirtleHeight = 40;
     self.bulbasaur.view.center = CGPointMake(50, 100);
     self.charmander.view.center = CGPointMake(150, 200);
     self.squirtle.view.center = CGPointMake(250, 300);
-    self.island.view.center = CGPointMake(50, 250);
+    self.island.view.center = CGPointMake(100, 280);
     
 
 }
@@ -90,36 +90,24 @@ static const CGFloat kSquirtleHeight = 40;
 {
     CGRect frame = CGRectZero;
     frame.origin = CGPointMake(0, 0);
-    frame.size = CGSizeMake(50, 50);
+    frame.size = CGSizeMake(150, 150);
     
     self.island = [[MGSpriteView alloc] initWithFrame:frame
                                                 atlasNamed:@"island_01"
-                                                       fps:5];
+                                                       fps:1];
     
     [self.view addSubview:self.island.view];
 
 }
 
-/*
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.island pauseAnimation];
+}
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch *aTouch = [touches anyObject];
-    
-    CGPoint pt = [aTouch locationInView:self.view];
-    
-    CGRect frame = CGRectZero;
-    frame.origin = pt;
-    frame.size = CGSizeMake(50, 50);
-    
-    MGSpriteView *sp = [[MGSpriteView alloc] initWithFrame:frame
-                                                atlasNamed:@"island_01"
-                                                       fps:5];
-    
-    [self.view addSubview:sp.view];
-    
-    [sp runAnimation];
+    [self.island runAnimation];
 }
- */
-
 
 @end
