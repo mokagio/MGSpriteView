@@ -56,6 +56,32 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     return self;
 }
 
+- (id)initWithFrame:(CGRect)frame
+         atlasNamed:(NSString *)atlasName
+                fps:(NSUInteger)fps;
+{
+    self = [super init];
+    if (self) {
+        
+        self.view = [[UIView alloc] initWithFrame:frame];
+        self.fps = fps;
+        self.completeCallback = nil;
+        
+        MGSpriteSheetParser *parser = [[MGSpriteSheetParser alloc] init];
+        self.sampleRects = [parser sampleRectsFromTextureAtlasNamed:atlasName];
+        CGImageRef image = [parser imageRefFromTextureAtlasNamed:atlasName];
+ 
+        [self findScaleFactor];
+
+        self.animatedLayer = [MCSpriteLayer layerWithImage:image];
+        self.animatedLayer.delegate = self;
+        
+        [self.view.layer addSublayer:self.animatedLayer];
+        [self.animatedLayer setNeedsDisplay];
+    }
+    return self;
+}
+
 - (void)runAnimation
 {
     [self runAnimationWithCompleteCallback:nil];
@@ -69,7 +95,7 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     anim.fromValue = [NSNumber numberWithInt:1];
     anim.toValue = [NSNumber numberWithInt:self.numberOfFrames + 1];
     anim.duration = [self duration];
-    anim.repeatCount = 1;
+    anim.repeatCount = HUGE_VALF;
     [self.animatedLayer addAnimation:anim forKey:nil];
 }
 

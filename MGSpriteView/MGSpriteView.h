@@ -22,4 +22,9 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
 
 - (CFTimeInterval)duration;
 
+#pragma mark - Compatible with iOS 7 Sprite Kit
+- (id)initWithFrame:(CGRect)frame
+         atlasNamed:(NSString *)atlasName
+                fps:(NSUInteger)fps;
+
 @end

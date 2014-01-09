@@ -8,15 +8,16 @@
 #import "MGSampleRect.h"
 
 @interface MGSampleRect ()
-@property (nonatomic, assign) CGRect bounds;
-@property (nonatomic, assign) CGRect contentRect;
-@property (nonatomic, assign) CGPoint offset;
-@property (nonatomic, assign) BOOL rotated;
-@property (nonatomic, assign) CGRect sourceColorRect;
-@property (nonatomic, assign) CGSize sourceSize;
+@property (nonatomic, assign) CGRect    bounds;
+@property (nonatomic, assign) CGRect    contentRect;
+@property (nonatomic, assign) CGPoint   offset;
+@property (nonatomic, assign) BOOL      rotated;
+@property (nonatomic, assign) CGRect    sourceColorRect;
+@property (nonatomic, assign) CGSize    sourceSize;
 @end
 
 @implementation MGSampleRect
+
 
 #pragma mark - Designated Initializer
 
@@ -29,10 +30,10 @@
 {
     self = [super init];
     if (self) {
-
+        
         CGFloat factor = [[UIScreen mainScreen] scale] == 1.0 ? 0.5 : 1.0;
         self.rotated = rotated;
-
+        
         if (self.rotated) {
             self.contentRect = CGRectMake(frame.origin.x * factor / size.width,
                                           frame.origin.y * factor / size.height,
@@ -62,6 +63,7 @@
     return self;
 }
 
+
 #pragma mark - NSObject
 
 - (id)init
@@ -72,6 +74,22 @@
                            rotated:NO
                    sourceColorRect:CGRectZero
                         sourceSize:CGSizeZero];
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"MGSampleRect: bounds=%@\n"
+            "MGSampleRect: contentRect=%@\n"
+            "MGSampleRect: offset=%@\n"
+            "MGSampleRect: rotated=%@\n"
+            "MGSampleRect: sourceColorRect=%@\n"
+            "MGSampleRect: sourceSize=%@\n",
+            NSStringFromCGRect(self.bounds),
+            NSStringFromCGRect(self.contentRect),
+            NSStringFromCGPoint(self.offset),
+            self.rotated ? @"YES" : @"NO",
+            NSStringFromCGRect(self.sourceColorRect),
+            NSStringFromCGSize(self.sourceSize)];
 }
 
 @end

@@ -23,4 +23,6 @@
         sourceColorRect:(CGRect)sourceColorRect
              sourceSize:(CGSize)sourceSize;
 
+- (NSString *)description;
+
 @end
