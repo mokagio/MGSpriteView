@@ -153,7 +153,17 @@
                                                            ofType:type
                                                       inDirectory:atlasName];
     
-    //NSAssert([[NSFileManager defaultManager] fileExistsAtPath:bundlePath], @"MGSpriteSheetParser: no plist file in %@", bundlePath);
+    if (![[NSFileManager defaultManager] fileExistsAtPath:bundlePath]) {
+        // iPhone Retina 3.5-inch
+        fileName = [NSString stringWithFormat:@"%@%@", atlasName, indexString];
+        atlasName = [NSString stringWithFormat:@"%@.atlasc", atlasName];
+        bundlePath = [[NSBundle mainBundle] pathForResource:fileName
+                                                     ofType:type
+                                                inDirectory:atlasName];
+        
+        NSAssert([[NSFileManager defaultManager] fileExistsAtPath:bundlePath],
+                 @"MGSpriteSheetParser: no plist file in %@", bundlePath);
+    }
     
     return bundlePath;
 }

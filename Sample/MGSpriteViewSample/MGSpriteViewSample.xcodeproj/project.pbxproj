@@ -37,8 +37,7 @@
 		3FE94E0317557DA0007DD0A1 /* squirtle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FE94E0017557DA0007DD0A1 /* squirtle.plist */; };
 		3FE94E0417557DA0007DD0A1 /* squirtle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FE94E0117557DA0007DD0A1 /* squirtle.png */; };
 		3FE94E0517557DA0007DD0A1 /* squirtle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FE94E0217557DA0007DD0A1 /* squirtle@2x.png */; };
-		ADB8E0AF187E77C500F27D0D /* island_01.atlas in Resources */ = {isa = PBXBuildFile; fileRef = ADB8E0AC187E77C500F27D0D /* island_01.atlas */; };
-		ADB8E0B0187E77C500F27D0D /* island_02.atlas in Resources */ = {isa = PBXBuildFile; fileRef = ADB8E0AD187E77C500F27D0D /* island_02.atlas */; };
+		AD36DA14187F813A001427E1 /* ninja_shinbi.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AD36DA13187F813A001427E1 /* ninja_shinbi.atlas */; };
 		ADB8E0B2187E7CB900F27D0D /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB8E0B1187E7CB900F27D0D /* SpriteKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -93,8 +92,7 @@
 		3FE94E0017557DA0007DD0A1 /* squirtle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = squirtle.plist; sourceTree = "<group>"; };
 		3FE94E0117557DA0007DD0A1 /* squirtle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squirtle.png; sourceTree = "<group>"; };
 		3FE94E0217557DA0007DD0A1 /* squirtle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "squirtle@2x.png"; sourceTree = "<group>"; };
-		ADB8E0AC187E77C500F27D0D /* island_01.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = island_01.atlas; sourceTree = "<group>"; };
-		ADB8E0AD187E77C500F27D0D /* island_02.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = island_02.atlas; sourceTree = "<group>"; };
+		AD36DA13187F813A001427E1 /* ninja_shinbi.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = ninja_shinbi.atlas; sourceTree = "<group>"; };
 		ADB8E0B1187E7CB900F27D0D /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -257,8 +255,7 @@
 		ADB8E0AB187E77C500F27D0D /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
-				ADB8E0AC187E77C500F27D0D /* island_01.atlas */,
-				ADB8E0AD187E77C500F27D0D /* island_02.atlas */,
+				AD36DA13187F813A001427E1 /* ninja_shinbi.atlas */,
 			);
 			path = iPhone;
 			sourceTree = "<group>";
@@ -342,7 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADB8E0AF187E77C500F27D0D /* island_01.atlas in Resources */,
+				AD36DA14187F813A001427E1 /* ninja_shinbi.atlas in Resources */,
 				3FE94DBC17557403007DD0A1 /* InfoPlist.strings in Resources */,
 				3FE94DC417557403007DD0A1 /* Default.png in Resources */,
 				3FE94DC617557403007DD0A1 /* Default@2x.png in Resources */,
@@ -356,7 +353,6 @@
 				3F106A3F175ADEB300603C70 /* bulbasaur@2x.png in Resources */,
 				3F9A02A1175C9F2400840866 /* charmander.plist in Resources */,
 				3F9A02A2175C9F2400840866 /* charmander.png in Resources */,
-				ADB8E0B0187E77C500F27D0D /* island_02.atlas in Resources */,
 				3F9A02A3175C9F2400840866 /* charmander@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
