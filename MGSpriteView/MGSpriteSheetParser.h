@@ -13,4 +13,8 @@
 
 - (NSArray *)sampleRectsFromFileAtPath:(NSString *)path;
 
+#pragma mark - Compatible with iOS 7 Sprite Kit
+- (NSArray *)sampleRectsFromTextureAtlasNamed:(NSString *)atlasName;
+- (CGImageRef)imageRefFromTextureAtlasNamed:(NSString *)atlasName;
+
 @end

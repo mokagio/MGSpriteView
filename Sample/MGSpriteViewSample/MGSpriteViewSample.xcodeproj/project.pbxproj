@@ -37,6 +37,8 @@
 		3FE94E0317557DA0007DD0A1 /* squirtle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FE94E0017557DA0007DD0A1 /* squirtle.plist */; };
 		3FE94E0417557DA0007DD0A1 /* squirtle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FE94E0117557DA0007DD0A1 /* squirtle.png */; };
 		3FE94E0517557DA0007DD0A1 /* squirtle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FE94E0217557DA0007DD0A1 /* squirtle@2x.png */; };
+		AD36DA14187F813A001427E1 /* ninja_shinbi.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AD36DA13187F813A001427E1 /* ninja_shinbi.atlas */; };
+		ADB8E0B2187E7CB900F27D0D /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB8E0B1187E7CB900F27D0D /* SpriteKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		3FE94E0017557DA0007DD0A1 /* squirtle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = squirtle.plist; sourceTree = "<group>"; };
 		3FE94E0117557DA0007DD0A1 /* squirtle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squirtle.png; sourceTree = "<group>"; };
 		3FE94E0217557DA0007DD0A1 /* squirtle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "squirtle@2x.png"; sourceTree = "<group>"; };
+		AD36DA13187F813A001427E1 /* ninja_shinbi.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = ninja_shinbi.atlas; sourceTree = "<group>"; };
+		ADB8E0B1187E7CB900F27D0D /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADB8E0B2187E7CB900F27D0D /* SpriteKit.framework in Frameworks */,
 				3FE94DFE17557B96007DD0A1 /* QuartzCore.framework in Frameworks */,
 				3FE94DB217557403007DD0A1 /* UIKit.framework in Frameworks */,
 				3FE94DB417557403007DD0A1 /* Foundation.framework in Frameworks */,
@@ -140,6 +145,7 @@
 		3FE94DB017557403007DD0A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ADB8E0B1187E7CB900F27D0D /* SpriteKit.framework */,
 				3FE94DFD17557B96007DD0A1 /* QuartzCore.framework */,
 				3FE94DB117557403007DD0A1 /* UIKit.framework */,
 				3FE94DB317557403007DD0A1 /* Foundation.framework */,
@@ -214,6 +220,7 @@
 		3FE94DFF17557C7A007DD0A1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ADB8E0A9187E77C500F27D0D /* TextureAtlases */,
 				3F106A3A175ADEB300603C70 /* bulbasaur.plist */,
 				3F106A3B175ADEB300603C70 /* bulbasaur.png */,
 				3F106A3C175ADEB300603C70 /* bulbasaur@2x.png */,
@@ -225,6 +232,39 @@
 				3F9A02A0175C9F2400840866 /* charmander@2x.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		ADB8E0A9187E77C500F27D0D /* TextureAtlases */ = {
+			isa = PBXGroup;
+			children = (
+				ADB8E0AA187E77C500F27D0D /* iPad */,
+				ADB8E0AB187E77C500F27D0D /* iPhone */,
+				ADB8E0AE187E77C500F27D0D /* WidescreeniPhone */,
+			);
+			name = TextureAtlases;
+			path = MGSpriteViewSample/TextureAtlases;
+			sourceTree = SOURCE_ROOT;
+		};
+		ADB8E0AA187E77C500F27D0D /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iPad;
+			sourceTree = "<group>";
+		};
+		ADB8E0AB187E77C500F27D0D /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				AD36DA13187F813A001427E1 /* ninja_shinbi.atlas */,
+			);
+			path = iPhone;
+			sourceTree = "<group>";
+		};
+		ADB8E0AE187E77C500F27D0D /* WidescreeniPhone */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WidescreeniPhone;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD36DA14187F813A001427E1 /* ninja_shinbi.atlas in Resources */,
 				3FE94DBC17557403007DD0A1 /* InfoPlist.strings in Resources */,
 				3FE94DC417557403007DD0A1 /* Default.png in Resources */,
 				3FE94DC617557403007DD0A1 /* Default@2x.png in Resources */,
@@ -428,7 +469,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -452,7 +493,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -466,6 +507,8 @@
 				GCC_PREFIX_HEADER = "MGSpriteViewSample/MGSpriteViewSample-Prefix.pch";
 				INFOPLIST_FILE = "MGSpriteViewSample/MGSpriteViewSample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -477,6 +520,8 @@
 				GCC_PREFIX_HEADER = "MGSpriteViewSample/MGSpriteViewSample-Prefix.pch";
 				INFOPLIST_FILE = "MGSpriteViewSample/MGSpriteViewSample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

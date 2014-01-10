@@ -17,6 +17,11 @@
 
 - (id)initWithImage:(CGImageRef)img;
 {
+    if (img == nil) {
+        NSLog(@"MCSpriteLayer: there's no image");
+        return nil;
+    }
+
     self = [super init];
     if (self != nil)
     {
@@ -41,6 +46,11 @@
 
 - (id)initWithImage:(CGImageRef)img sampleSize:(CGSize)size;
 {
+    if (img == nil) {
+        NSLog(@"MCSpriteLayer: there's no image");
+        return nil;
+    }
+    
     self = [self initWithImage:img];
     if (self != nil)
     {
