@@ -54,7 +54,7 @@
         self.name = name ? name : nil;
         
         if (self.rotated) {
-            if (name) {
+            if (name) { // for atlas of iOS 7 Sprite Kit
                 self.contentRect = CGRectMake(frame.origin.x * factor / size.width,
                                               frame.origin.y * factor / size.height,
                                               frame.size.width * factor / size.width,
