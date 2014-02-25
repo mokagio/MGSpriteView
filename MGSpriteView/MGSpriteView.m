@@ -90,6 +90,7 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
 	self.drawingTimer = nil;
 	self.animatedLayer = nil;
 	self.view = nil;
+	self.completeCallback = nil;
 }
 
 #pragma mark - Getters
