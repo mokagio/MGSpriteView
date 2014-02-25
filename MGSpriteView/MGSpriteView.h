@@ -42,6 +42,7 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
 - (void)runAnimationLooped;
 
 - (void)pause;
+- (void)stop;
 
 - (CFTimeInterval)duration;
 
