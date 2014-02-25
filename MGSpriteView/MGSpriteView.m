@@ -244,6 +244,12 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     // TODO - It doesn't handle the CAAnimation case!!!
     [self.drawingTimer setPaused:YES];
 }
+- (void)stop
+{
+	[self.drawingTimer invalidate];
+	self.drawingTimer = nil;
+	self.completeCallback = nil;
+}
 
 #pragma mark -
 
