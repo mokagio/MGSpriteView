@@ -152,7 +152,7 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
         if (self.drawingTimer) [self.drawingTimer invalidate];
         
         self.drawingTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(redraw:)];
-        [self.drawingTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+        [self.drawingTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
     }
 }
 
