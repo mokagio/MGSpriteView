@@ -199,7 +199,7 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
 			newIndex = newIndex % [self.sampleRects count];
 			CGFloat duration =(1.0/self.fps)*[self.sampleRects count];
 			self.drawingElapsedTime -= duration;
-            }
+		}
 		
         if (newIndex < [self.sampleRects count]) {
             MGSampleRect *sample = self.sampleRects[newIndex];
@@ -294,13 +294,12 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     CGFloat maxWidth = 0;
     CGFloat maxHeight = 0;
     for (MGSampleRect *sampleRect in sampleRects) {
-        CGFloat width = sampleRect.rotated ? sampleRect.bounds.size.height : sampleRect.bounds.size.width;
-        CGFloat height = sampleRect.rotated ? sampleRect.bounds.size.width : sampleRect.bounds.size.height;
-        if (width > maxWidth) {
-            maxWidth = width;
+		// use source size to work out placement intended (rect would be in the same space)
+        if (sampleRect.sourceSize.width > maxWidth) {
+            maxWidth = sampleRect.sourceSize.width;
         }
-        if (height > maxHeight) {
-            maxHeight = height;
+        if (sampleRect.sourceSize.height > maxHeight) {
+            maxHeight = sampleRect.sourceSize.height;
         }
     }
     
