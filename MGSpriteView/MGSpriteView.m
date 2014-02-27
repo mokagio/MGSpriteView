@@ -16,6 +16,7 @@
 @property (nonatomic, assign) NSUInteger fps;
 @property (nonatomic, assign) CGFloat scaleFactor;
 @property (nonatomic, assign) CGImageRef image;
+@property (nonatomic, assign) BOOL looping;
 @property (nonatomic, copy) MGSpriteAnimationCallback completeCallback;
 @property (nonatomic, assign) MGSpriteViewAnimationMode animationMode;
 - (NSUInteger)numberOfFrames;
@@ -47,6 +48,7 @@
         self.sampleRects = sampleRects;
         self.scaleFactor = scaleFactor;
         self.image = image;
+		self.looping = NO;
         self.animatedLayer = [MCSpriteLayer layerWithImage:self.image];
         self.animatedLayer.delegate = self;
         
@@ -159,6 +161,7 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
 
 - (void)runAnimation
 {
+	self.looping = NO;
     [self runAnimationWithCompleteCallback:nil];
 }
 
@@ -169,9 +172,8 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
 
 - (void)runAnimationLooped
 {
-    [self runAnimationWithCompleteCallback:^{
-        [self runAnimationLooped];
-    }];
+	self.looping = YES;
+    [self runAnimationWithCompleteCallback:nil];
 }
 
 #pragma mark - Animation - CADisplayLink
@@ -192,17 +194,20 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     
     NSUInteger newIndex = self.drawingElapsedTime / (1.0 / self.fps);
     if (newIndex != self.drawingIndex) {
-        if (newIndex < [self.sampleRects count]) {
-            MGSampleRect *sample = nil;
-            if (newIndex == 0) {
-                sample = self.sampleRects[newIndex];
-            } else {
-                sample = self.sampleRects[newIndex - 1];
+		if (self.looping && newIndex >= [self.sampleRects count])
+		{
+			newIndex = newIndex % [self.sampleRects count];
+			CGFloat duration =(1.0/self.fps)*[self.sampleRects count];
+			self.drawingElapsedTime -= duration;
             }
+		
+        if (newIndex < [self.sampleRects count]) {
+            MGSampleRect *sample = self.sampleRects[newIndex];
             [self displayAnimatedLayerWithSample:sample];
             
             self.drawingIndex = newIndex;
-        } else {
+        }
+		else {
             [self.drawingTimer invalidate];
             if (self.completeCallback) self.completeCallback();
         }
@@ -216,13 +221,7 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     if (layer == self.animatedLayer) {
         MCSpriteLayer *spriteLayer = (MCSpriteLayer*)layer;
         unsigned int index = [spriteLayer currentSampleIndex];
-        MGSampleRect *sample = nil;
-        
-        if (index == 0) {
-            sample = self.sampleRects[index];
-        } else {
-            sample = self.sampleRects[index - 1];
-        }
+        MGSampleRect *sample = self.sampleRects[index];
         
         [self displayAnimatedLayerWithSample:sample];
         
@@ -250,6 +249,7 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
 	[self.drawingTimer invalidate];
 	self.drawingTimer = nil;
 	self.completeCallback = nil;
+	self.looping = NO;
 }
 
 #pragma mark -
