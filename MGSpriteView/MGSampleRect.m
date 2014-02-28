@@ -29,32 +29,31 @@
 {
     self = [super init];
     if (self) {
-
-        CGFloat factor = [[UIScreen mainScreen] scale] == 1.0 ? 0.5 : 1.0;
+		
         self.rotated = rotated;
-
+		
         if (self.rotated) {
-            self.contentRect = CGRectMake(frame.origin.x * factor / size.width,
-                                          frame.origin.y * factor / size.height,
-                                          frame.size.height * factor / size.width,
-                                          frame.size.width * factor / size.height);
+            self.contentRect = CGRectMake(frame.origin.x / size.width,
+                                          frame.origin.y / size.height,
+                                          frame.size.height / size.width,
+                                          frame.size.width / size.height);
             self.bounds = CGRectMake(0,
                                      0,
-                                     frame.size.height * factor,
-                                     frame.size.width * factor);
+                                     frame.size.height,
+                                     frame.size.width);
         } else {
-            self.contentRect = CGRectMake(frame.origin.x * factor / size.width,
-                                          frame.origin.y * factor / size.height,
-                                          frame.size.width * factor / size.width,
-                                          frame.size.height * factor / size.height);
+            self.contentRect = CGRectMake(frame.origin.x / size.width,
+                                          frame.origin.y / size.height,
+                                          frame.size.width / size.width,
+                                          frame.size.height / size.height);
             self.bounds = CGRectMake(0,
                                      0,
-                                     frame.size.width * factor,
-                                     frame.size.height * factor);
+                                     frame.size.width,
+                                     frame.size.height);
         }
         
         // WHY + and - ? May be bec
-        self.offset = CGPointMake(offset.x * factor, -offset.y * factor);
+        self.offset = CGPointMake(offset.x, -offset.y);
         
         self.sourceColorRect = sourceColorRect;
         self.sourceSize = sourceSize;
