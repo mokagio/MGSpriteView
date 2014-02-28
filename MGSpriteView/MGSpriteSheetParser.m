@@ -13,7 +13,19 @@
 
 - (NSArray *)sampleRectsFromFileAtPath:(NSString *)path
 {
-    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:path ofType:nil];
+	NSString* bundlePath = [[NSBundle mainBundle] pathForResource:path ofType:nil];
+	
+	// manually check if retina version exists
+	if ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] &&
+		([UIScreen mainScreen].scale == 2.0)) {
+		NSString* retinaBundlePath = [NSString stringWithFormat:@"%@@2x.%@",[path stringByDeletingPathExtension],[path pathExtension]];
+		retinaBundlePath = [[NSBundle mainBundle] pathForResource:retinaBundlePath ofType:nil];
+		if (retinaBundlePath)
+		{
+			bundlePath = retinaBundlePath;
+		}
+	}
+	
     NSDictionary *data = [NSDictionary dictionaryWithContentsOfFile:bundlePath];
     if (data) {
         
@@ -22,7 +34,7 @@
         NSDictionary *frames = [data objectForKey:@"frames"];
         NSArray *keys = [frames allKeys];
         NSArray *sortedKeys = [keys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-
+		
         CGSize size = CGSizeMake(CGImageGetWidth(self.imageRef), CGImageGetHeight(self.imageRef));
         for (NSString *key in sortedKeys) {
             NSString *frame = [[frames objectForKey:key] objectForKey:@"frame"];
@@ -67,7 +79,7 @@
     NSArray *coords = [pointString componentsSeparatedByString:@","];
     if ([coords count] == 2) {
         return CGPointMake([coords[0] floatValue],
-                          [coords[1] floatValue]);
+						   [coords[1] floatValue]);
     } else {
         return CGPointZero;
     }
@@ -80,7 +92,7 @@
     NSArray *dimensions = [sizeString componentsSeparatedByString:@","];
     if ([dimensions count] == 2) {
         return CGSizeMake([dimensions[0] floatValue],
-                           [dimensions[1] floatValue]);
+						  [dimensions[1] floatValue]);
     } else {
         return CGSizeZero;
     }

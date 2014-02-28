@@ -11,7 +11,7 @@
 @property (nonatomic, strong) NSArray *animations;
 @property (nonatomic, assign) NSUInteger animationIndex;
 @property (nonatomic, strong) MGSpriteView *currentAnimation;
-@property (nonatomic, strong) MGSpriteAnimationCallback callback;
+@property (nonatomic, copy) MGSpriteAnimationCallback callback;
 @end
 
 
@@ -41,6 +41,11 @@
     return self;
 }
 
+- (void)dealloc
+{
+	NSLog(@"### dealloc %@",NSStringFromClass([self class]));
+}
+
 - (void)runWithCallback:(MGSpriteAnimationCallback)callback
 {
     self.animationIndex = 0;
@@ -59,21 +64,23 @@
                                scaleFactor:newAnimation.scaleFactor
                                        fps:newAnimation.fps];
     
+	__weak typeof(self) bself = self;
     [self.currentAnimation runAnimationWithMode:MGSpriteViewAnimationModeDisplayLink
                                completeCallback:^{
-                                   self.animationIndex++;
-                                   if (self.animationIndex < [self.animations count]) {
-                                       [self runCurrentAnimation];
+                                   bself.animationIndex++;
+                                   if (bself.animationIndex < [bself.animations count]) {
+                                       [bself runCurrentAnimation];
                                    } else {
-                                       if (self.callback) self.callback();
+                                       if (bself.callback) bself.callback();
                                    }
                                }];
 }
 
 - (void)runLooped
 {
+	__weak typeof(self) bself = self;
     [self runWithCallback:^{
-        [self runLooped];
+        [bself runLooped];
     }];
 }
 

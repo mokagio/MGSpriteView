@@ -16,7 +16,8 @@
 @property (nonatomic, assign) NSUInteger fps;
 @property (nonatomic, assign) CGFloat scaleFactor;
 @property (nonatomic, assign) CGImageRef image;
-@property (nonatomic, strong) MGSpriteAnimationCallback completeCallback;
+@property (nonatomic, assign) BOOL looping;
+@property (nonatomic, copy) MGSpriteAnimationCallback completeCallback;
 @property (nonatomic, assign) MGSpriteViewAnimationMode animationMode;
 - (NSUInteger)numberOfFrames;
 - (void)setPositionWithSample:(MGSampleRect *)sample;
@@ -47,6 +48,7 @@
         self.sampleRects = sampleRects;
         self.scaleFactor = scaleFactor;
         self.image = image;
+		self.looping = NO;
         self.animatedLayer = [MCSpriteLayer layerWithImage:self.image];
         self.animatedLayer.delegate = self;
         
@@ -79,6 +81,18 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
                    sampleRects:sampleRects
                    scaleFactor:scaleFactor
                            fps:fps];
+}
+
+- (void)dealloc
+{
+	NSLog(@"### dealloc %@",NSStringFromClass([self class]));
+	[self.drawingTimer invalidate];
+	[self.animatedLayer removeFromSuperlayer];
+	[self.view removeFromSuperview];
+	self.drawingTimer = nil;
+	self.animatedLayer = nil;
+	self.view = nil;
+	self.completeCallback = nil;
 }
 
 #pragma mark - Getters
@@ -141,12 +155,13 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
         if (self.drawingTimer) [self.drawingTimer invalidate];
         
         self.drawingTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(redraw:)];
-        [self.drawingTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+        [self.drawingTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
     }
 }
 
 - (void)runAnimation
 {
+	self.looping = NO;
     [self runAnimationWithCompleteCallback:nil];
 }
 
@@ -157,9 +172,8 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
 
 - (void)runAnimationLooped
 {
-    [self runAnimationWithCompleteCallback:^{
-        [self runAnimationLooped];
-    }];
+	self.looping = YES;
+    [self runAnimationWithCompleteCallback:nil];
 }
 
 #pragma mark - Animation - CADisplayLink
@@ -180,17 +194,20 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     
     NSUInteger newIndex = self.drawingElapsedTime / (1.0 / self.fps);
     if (newIndex != self.drawingIndex) {
+		if (self.looping && newIndex >= [self.sampleRects count])
+		{
+			newIndex = newIndex % [self.sampleRects count];
+			CGFloat duration =(1.0/self.fps)*[self.sampleRects count];
+			self.drawingElapsedTime -= duration;
+		}
+		
         if (newIndex < [self.sampleRects count]) {
-            MGSampleRect *sample = nil;
-            if (newIndex == 0) {
-                sample = self.sampleRects[newIndex];
-            } else {
-                sample = self.sampleRects[newIndex - 1];
-            }
+            MGSampleRect *sample = self.sampleRects[newIndex];
             [self displayAnimatedLayerWithSample:sample];
             
             self.drawingIndex = newIndex;
-        } else {
+        }
+		else {
             [self.drawingTimer invalidate];
             if (self.completeCallback) self.completeCallback();
         }
@@ -204,13 +221,7 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     if (layer == self.animatedLayer) {
         MCSpriteLayer *spriteLayer = (MCSpriteLayer*)layer;
         unsigned int index = [spriteLayer currentSampleIndex];
-        MGSampleRect *sample = nil;
-        
-        if (index == 0) {
-            sample = self.sampleRects[index];
-        } else {
-            sample = self.sampleRects[index - 1];
-        }
+        MGSampleRect *sample = self.sampleRects[index];
         
         [self displayAnimatedLayerWithSample:sample];
         
@@ -233,8 +244,15 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     // TODO - It doesn't handle the CAAnimation case!!!
     [self.drawingTimer setPaused:YES];
 }
+- (void)stop
+{
+	[self.drawingTimer invalidate];
+	self.drawingTimer = nil;
+	self.completeCallback = nil;
+	self.looping = NO;
+}
 
-#pragma mark - 
+#pragma mark -
 
 - (void)displayAnimatedLayerWithSample:(MGSampleRect *)sample
 {
@@ -276,13 +294,12 @@ spriteSheetFileName:(NSString *)spriteSheetFilename
     CGFloat maxWidth = 0;
     CGFloat maxHeight = 0;
     for (MGSampleRect *sampleRect in sampleRects) {
-        CGFloat width = sampleRect.rotated ? sampleRect.bounds.size.height : sampleRect.bounds.size.width;
-        CGFloat height = sampleRect.rotated ? sampleRect.bounds.size.width : sampleRect.bounds.size.height;
-        if (width > maxWidth) {
-            maxWidth = width;
+		// use source size to work out placement intended (rect would be in the same space)
+        if (sampleRect.sourceSize.width > maxWidth) {
+            maxWidth = sampleRect.sourceSize.width;
         }
-        if (height > maxHeight) {
-            maxHeight = height;
+        if (sampleRect.sourceSize.height > maxHeight) {
+            maxHeight = sampleRect.sourceSize.height;
         }
     }
     
